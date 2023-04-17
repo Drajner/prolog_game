@@ -67,10 +67,23 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
                     przedmiot_w(klucz_do_szafki_janusza, ekwipunek),
                     write("Po krótkiej, lecz uciążliwej szamotaninie z przyrdzewiałym zamkiem szafki, Bombie udało się otworzyć szafkę podkomendnego."), nl,
                     write("Niestety potyczka poskutkowała poważnymi stratami, klucz utknął w drzwiczkach i za nic nie chce ich opuścić."), nl,
-                    write("Wewnątrz znajduje się wedka_bez_haczyka oraz zolta_przyneta, zielona_przyneta, niebieska_przyneta. Niestety wędka może być problematyczna w użyciu bez haczyka."), nl,
-                    retract(przedmiot_w(klucz_do_szafki_janusza, ekwipunek))
+                    write("Na podłogę pokoju z impetem wyleciały wedka_bez_haczyka oraz zolta_przyneta, zielona_przyneta, niebieska_przyneta."), nl,
+                    write("Niestety wędka może być problematyczna w użyciu bez haczyka."), nl,
+                    retract(przedmiot_w(klucz_do_szafki_janusza, ekwipunek)),
                     assert(przedmiot_w(wedka_bez_haczyka, pokoj)),
                     assert(przedmiot_w(zolta_przyneta, pokoj)),
                     assert(przedmiot_w(zielona_przyneta, pokoj)),
-                    assert(przedmiot_w(niebieska_przyneta pokoj)).
+                    assert(przedmiot_w(niebieska_przyneta pokoj)),
+                    szafka_janusza_otwarta.
+
+otworz(szafka_janusza) :- pozycja_gracza(pokoj),
+                    szafka_janusza_otwarta
+                    write("Pusta szafka stoi już otworem."), nl.
+
+otworz(szafka_janusza) :- pozycja_gracza(pokoj),
+                    write("Ciężko byłoby otworzyć szafkę bez klucza."), nl.
+
+
+
+
 
