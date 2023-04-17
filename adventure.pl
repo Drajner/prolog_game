@@ -1,13 +1,25 @@
 /* <The name of this game>, by <your name goes here>. */
 
+:- discontiguous i_am_at/1, 
+    at/2,
+    perform_action/1,
+    describe/1,
+    path/3,
+    use/1,
+    notice_objects_here/0,
+    search/1.
+
 :- dynamic i_am_at/1, at/2, holding/1.
 :- retractall(at(_, _)), retractall(i_am_at(_)), retractall(alive(_)).
 
-i_am_at(someplace).
+:- include('main').
+:- include('head').
+:- include('object-usage').
 
-path(someplace, n, someplace).
+i_am_at(main).
 
-at(thing, someplace).
+path(main, head, head).
+
 
 /* These rules describe how to pick up an object. */
 
@@ -46,6 +58,9 @@ drop(_) :-
 
 /* These rules define the direction letters as calls to go/1. */
 
+head :- go(head).
+main :- go(main).
+
 n :- go(n).
 
 s :- go(s).
@@ -74,6 +89,11 @@ look :-
         i_am_at(Place),
         describe(Place),
         nl,
+        notice_objects_at(Place),
+        nl.
+
+notice_objects_here :-
+        i_am_at(Place),
         notice_objects_at(Place),
         nl.
 
@@ -112,13 +132,15 @@ instructions :-
         nl,
         write('Enter commands using standard Prolog syntax.'), nl,
         write('Available commands are:'), nl,
-        write('start.             -- to start the game.'), nl,
-        write('n.  s.  e.  w.     -- to go in that direction.'), nl,
-        write('take(Object).      -- to pick up an object.'), nl,
-        write('drop(Object).      -- to put down an object.'), nl,
-        write('look.              -- to look around you again.'), nl,
-        write('instructions.      -- to see this message again.'), nl,
-        write('halt.              -- to end the game and quit.'), nl,
+        write('start.               -- to start the game.'), nl,
+        write('head. tail. middle.  -- to go in that direction.'), nl,
+        write('take(Object).        -- to pick up an object.'), nl,
+        write('drop(Object).        -- to put down an object.'), nl,
+        write('use(Object).         -- to use an object'), nl,
+        write('search(Object).      -- to search an object'), nl,
+        write('look.                -- to look around you again.'), nl,
+        write('instructions.        -- to see this message again.'), nl,
+        write('halt.                -- to end the game and quit.'), nl,
         nl.
 
 
@@ -127,10 +149,3 @@ instructions :-
 start :-
         instructions,
         look.
-
-
-/* These rules describe the various rooms.  Depending on
-   circumstances, a room may have more than one description. */
-
-describe(someplace) :- write('You are someplace.'), nl.
-
