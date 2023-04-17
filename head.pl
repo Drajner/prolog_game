@@ -10,26 +10,26 @@ at(box_b, head).
 at(box_c, head).
 at(wardrobe, head).
 
-can_be_searched(box_a) :-
-    i_am_at(head),
-    at(box_a, head).
+can_be_searched(box_a).
 
-can_be_searched(wardrobe) :-
-    i_am_at(head).
+can_be_searched(box_b) :-
+    holding(key_a).
+
+can_be_searched(box_c) :-
+    was_used(ladder).
+
+can_be_searched(wardrobe).
 
 perform_action(wardrobe) :-
     was_searched(wardrobe),
     assert(at(ladder, head)), nl, !.
 
 can_be_used(ladder) :-
-    was_searched(wardrobe),
-    i_am_at(head),
-    at(ladder, head).
+    was_searched(wardrobe).
 
 perform_action(ladder) :-
     was_used(ladder),
-    assert(can_be_searched(box_b)),
-    write("Now you have access to box B"), nl, !.
+    write("Now you have access to box C"), nl, !.
 
 perform_action(box_a) :-
     was_searched(box_a),
@@ -43,6 +43,6 @@ perform_action(box_a) :-
     assert(at(matches, head)),
     write("Znalazłeś w skrzyni kilka przedmiotów: "), nl, !.
 
-perform_action(box_b) :-
-    assert(at(hammer, head)), 
+perform_action(box_c) :-
+    assert(at(hammer, head)),
     write("Znalazłeś młotek :D"), nl, !.
