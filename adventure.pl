@@ -8,6 +8,7 @@
     use/1,
     notice_objects_here/0,
     holding/1,
+    can_be_used/1,
     search/1.
 
 :- dynamic i_am_at/1, at/2, holding/1.

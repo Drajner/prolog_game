@@ -2,7 +2,10 @@ describe(main) :- write('Znajdujesz się w sterowni. To chyba tutaj naprawisz st
 
 at(engine, main).
 
+can_be_used(engine) :-
+    holding(hammer).
+
 perform_action(engine) :-
-    holding(hammer),
+    was_used(engine),
     write('Gratulacje statek naprawiony, gra skończona'), nl,
     finish, !.
