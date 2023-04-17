@@ -9,14 +9,12 @@ podnies(X) :- przedmiot_w(X, ekwipunek),
             write("you got it already hoe").
 
 podnies(X) :- pozycja_gracza(Y),
-            przedmiot_w(X, not(Y)),
-            write("not here").
-
-podnies(X) :- pozycja_gracza(Y),
             przedmiot_w(X, Y),
             retract(przedmiot_w(X, Y)),
             assert(przedmiot_w(X, ekwipunek)),
             write("picked up "), write(X).
+
+podnies(_) :- write("not here").
 
 upusc(X) :- pozycja_gracza(Y),
             przedmiot_w(X, ekwipunek),
