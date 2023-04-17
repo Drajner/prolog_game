@@ -24,4 +24,4 @@ upusc(X) :- pozycja_gracza(Y),
             assert(przedmiot_w(X, Y)),
             write("dropped "), write(X).
 
-upusc(X) :- write("you dont have that").
+upusc(_) :- write("you dont have that").
