@@ -15,7 +15,7 @@ use(X) :- not(can_be_used(X)),
 use(X) :- can_be_used(X),
         assert(was_used(X)),
         perform_action(X),
-        write("successfully used"), !.
+        write("successfully used"), nl, !.
 
 search(X) :- was_searched(X),
         write("it has been already searched"), nl, !.
@@ -26,5 +26,6 @@ search(X) :- not(can_be_searched(X)),
 search(X) :- can_be_searched(X),
         assert(was_searched(X)),
         perform_action(X),
-        write("successfully searched"), !.
+        write("successfully searched"), nl,
+        notice_objects_here, !.
 

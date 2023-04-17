@@ -6,6 +6,7 @@
     describe/1,
     path/3,
     use/1,
+    notice_objects_here/0,
     search/1.
 
 :- dynamic i_am_at/1, at/2, holding/1.
@@ -88,6 +89,11 @@ look :-
         i_am_at(Place),
         describe(Place),
         nl,
+        notice_objects_at(Place),
+        nl.
+
+notice_objects_here :-
+        i_am_at(Place),
         notice_objects_at(Place),
         nl.
 
