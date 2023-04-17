@@ -56,10 +56,3 @@ wpisz_kod(_) :- klodka_zamknieta,
 
 wpisz_kod(_) :- write("Nie ma tu nic co mogłoby przyjąć kod."), nl.
 
-
-uzyj(skafander) :- przedmiot_w(skafander, ekwipunek),
-                    write("Wpychając się w cuchnący, starożytny już ekwipunek, zauważył, że przez lepiej wewnątrz tego złomu nie oddalać się zanadto od statku, "), nl,
-                    write("bo bezpieczniej byłoby już pomylić szubienicę z bungee. Nie dość, że poruszanie się w tym żelastwie jest trudnością, "), nl,
-                    write("to przez hełm absolutnie nic nie słychać i nie da się rozmawiać."),
-                    assert(w_skafandrze).
-
