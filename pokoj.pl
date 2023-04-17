@@ -9,6 +9,11 @@ zobacz(kalendarz) :- pozycja_gracza(pokoj),
                     write("Ledwo prowadził rakietę. Nie dotarł na narodziny swojego syna, chociaż i tak by tego nie pamiętał."), nl,
                     write("Dzień po pierwszym stycznia nie zatrzymał się w jego pamięci. Aldona nadal ma mu to za złe."), nl.
 
+zobacz(kuchnia) :- pozycja_gracza(pokoj),
+                    janusz_gotuje,
+                    write("Janusz usilnie próbuje dojść do porozumienia z otaczającym go syfem."), nl.,
+                    write("Patrząc na tempo jego działań kapitan dochodzi do wniosku, że chwilę to potrwa zanim dostaną kolację.")
+
 zobacz(kuchnia) :-  pozycja_gracza(pokoj),
                     write("Potworny syf rzucał się w oczy. Brudne naczynia leżały wszędzie."), nl.
 
@@ -82,6 +87,8 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),
                     write("Ciężko byłoby otworzyć szafkę bez klucza."), nl.
+
+
 
 
 

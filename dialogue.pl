@@ -1,8 +1,10 @@
-rozmawiaj(seba, kuchnia) :-
-rozmawiaj(janusz, kuchnia) :-
-rozmawiaj(seba, szafka) :-
-rozmawiaj(janusz, szafka) :-
-rozmawiaj(seba, szafki) :-
-rozmawiaj(janusz, szafki) :-
-rozmawiaj(seba, skafander) :-
-rozmawiaj(janusz, skafander) :-
+rozmawiaj(seba, kuchnia) :- not(w_skafandrze),
+rozmawiaj(janusz, kuchnia) :- not(w_skafandrze), 
+rozmawiaj(seba, szafka) :- not(w_skafandrze),
+rozmawiaj(janusz, szafka) :- not(w_skafandrze),
+rozmawiaj(seba, szafki) :- not(w_skafandrze),
+rozmawiaj(janusz, szafki) :- not(w_skafandrze),
+rozmawiaj(seba, skafander) :- not(w_skafandrze),
+rozmawiaj(janusz, skafander) :- not(w_skafandrze),
+rozmawiaj(janusz, ryba) :- not(w_skafandrze),
+rozmawiaj(janusz, przynety) :- not(w_skafandrze),
