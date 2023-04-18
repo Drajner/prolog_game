@@ -3,7 +3,8 @@
     skafander_niezbadany/0,  
     janusz_nie_gotuje/0,
     bez_skafandra/0,
-    gruba_ryba_niezlapana/0.
+    gruba_ryba_niezlapana/0,
+    szafka_janusza_zamknieta/0.
 
 
 :- ensure_loaded(map),

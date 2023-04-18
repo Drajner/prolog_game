@@ -6,6 +6,7 @@ klodka_zamknieta.
 janusz_nie_gotuje.
 skafander_niezbadany.
 bez_skafandra.
+szafka_janusza_zamknieta.
 
 zobacz(kalendarz) :- pozycja_gracza(pokoj), 
                     write("Modelka kusi oczy kapitana. To juz koncowka marca."), nl,
@@ -73,7 +74,7 @@ zobacz(szafki) :-   pozycja_gracza(pokoj),
 otworz(szafka_seby) :- pozycja_gracza(pokoj),
                     write("Szafka Seby niestety jest zamknieta i bez klucza moze byc niemozliwa do otwarcia."), nl,!.
 
-otworz(szafka_janusza) :- pozycja_gracza(pokoj),
+otworz(szafka_janusza) :- pozycja_gracza(pokoj), szafka_janusza_zamknieta,
                     przedmiot_w(klucz_do_szafki_janusza, ekwipunek),
                     write("Po krótkiej, lecz uciazliwej szamotaninie z przyrdzewialym zamkiem szafki, Bombie udalo sie otworzyc szafke podkomendnego."), nl,
                     write("Niestety potyczka poskutkowala powaznymi stratami, klucz utknal w drzwiczkach i za nic nie chce ich opuscic."), nl,
@@ -84,10 +85,10 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
                     assert(przedmiot_w(czerwona_przyneta, pokoj)),
                     assert(przedmiot_w(zielona_przyneta, pokoj)),
                     assert(przedmiot_w(niebieska_przyneta, pokoj)),
-                    szafka_janusza_otwarta,!.
+                    retractall(szafka_janusza_zamknieta),!.
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),
-                    szafka_janusza_otwarta,
+                    not(szafka_janusza_zamknieta),
                     write("Pusta szafka stoi juz otworem."), nl,!.
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),
