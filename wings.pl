@@ -2,7 +2,7 @@
 
 zobacz(silnik) :- pozycja_gracza(skrzydlo_lewe), chuda_ryba_niezlapana,
                 write("Stary, trzymajacy sie jeszcze silnik zostal zamieszkaly przez chuda rybe. Niestety jest ona poza zasiegiem reki kapitana."), nl,
-                write("Moze udaloby sie wyploszyc jakos ta rybe ze srodka?"),!.
+                write("Moze udaloby sie ją wypłoszyć przy użyciu mlotka?"),!.
 
 zobacz(silnik) :- pozycja_gracza(skrzydlo_lewe),
                 write("Silnik jest pusty..."),!.
