@@ -23,3 +23,6 @@ upusc(X) :- pozycja_gracza(Y),
             write("Kapitan upuszcza "), write(X).
 
 upusc(_) :- write("Kapitan nie dysponuje takim przedmiotem.").
+
+ekwipunek :- przedmiot_w(X, ekwipunek),
+            write(X), nl.

@@ -42,9 +42,24 @@ uzyj(wedka_bez_haczyka) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
                     write("Wędką bez haczyka można sobie oczywiście pomachać i poudawać, że łowi się ryby, ale nie przyniesie to efektów."), nl.
 
 uzyj(wedka) :- przedmiot_w(wedka, ekwipunek),
-                    write("Generalnie to chyba do łowienia przydałaby się jeszcze przyneta"), nl.
+                    write("Do łowienia przydałaby się jeszcze przyneta"), nl.
 
-uzyj(czerwona_przyneta) :-
+
+uzyj(wedka_z_niebieska_przneta) :- pozycja_gracza(skrzydlo_prawe), not(gruba_ryba_zlapana), przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek),
+                    write("Potężna wodna bestia wypłynęła z silnika i pochwyciła niebieską przynętę. Kapitan musiał się wysilić by złapać tego potwora."), nl,
+                    write("[Do ekwipunku dodano gruba_ryba oraz zamieniono wedka_z_niebieska_przyneta na wedka.]"), nl,
+                    assert(gruba_ryba_zlapana),
+                    assert(przedmiot_w(gruba_ryba,ekwipunek)),
+                    retract(przedmiot_w(wedka_z_niebieska_przneta,ekwipunek)),
+                    assert(przedmiot_w(wedka, ekwipunek)).
+
+uzyj(wedka_z_zielona_przneta) :- przedmiot_w(wedka_z_zielona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+
+uzyj(wedka_z_czerwona_przneta) :- przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+
+uzyj(wedka_z_niebieska_przneta) :- przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+
+uzyj(czerwona_przyneta) :- not(przedmiot_w(wedka,ekwipunek))
 
 uzyj(zielona_przyneta) :-
 
