@@ -33,6 +33,7 @@ idz(X) :- miejsce(X),
         retractall(pozycja_gracza(_)),
         assert(pozycja_gracza(X)),
         write("Kapitan udal sie do "), write(X), !, nl.
+        opis.
 
 idz(_) :-
         \+pozycja_gracza(Y),
