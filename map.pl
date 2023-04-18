@@ -34,7 +34,10 @@ idz(X) :- miejsce(X),
         assert(pozycja_gracza(X)),
         write("Kapitan udal sie do "), write(X), !, nl.
 
-idz(_) :- write("Niestety nie da sie tam pójsc.").
+idz(_) :-
+        \+pozycja_gracza(Y),
+        \+takie_same_miejsca(X,Y),
+        write("Niestety nie da sie tam pójsc.").
 
 otworz_sluze :- pozycja_gracza(sluza),
                 not(miejsce_na_pokladzie(sluza)),

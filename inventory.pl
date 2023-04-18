@@ -1,8 +1,5 @@
 :- dynamic przedmiot_w/2.
 
-przedmiot_w(mlotek, ekwipunek).
-przedmiot_w(haczyk,ekwipunek).
-
 podnies(X) :- przedmiot_w(X, ekwipunek),
             write("Kapitan trzyma juz ten przedmiot w ekwipunku."), !, nl.
 
@@ -12,7 +9,10 @@ podnies(X) :- pozycja_gracza(Y),
             assert(przedmiot_w(X, ekwipunek)),
             write("Bomba podnosi "), write(X), !, nl.
 
-podnies(_) :- write("Nie ma tu takiego przedmiotu."), nl.
+podnies(_) :-
+            \+pozycja_gracza(Y),
+            \+przedmiot_w(X, Y),
+            write("Nie ma tu takiego przedmiotu.").
 
 upusc(X) :- pozycja_gracza(Y),
             przedmiot_w(X, ekwipunek),
@@ -24,3 +24,4 @@ upusc(_) :- write("Kapitan nie dysponuje takim przedmiotem.").
 
 ekwipunek :- przedmiot_w(X, ekwipunek),
             write(X), nl, fail, !.
+
