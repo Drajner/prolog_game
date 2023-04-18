@@ -4,19 +4,28 @@
     janusz_nie_gotuje/0,
     bez_skafandra/0,
     gruba_ryba_niezlapana/0,
-    szafka_janusza_zamknieta/0.
+    szafka_janusza_zamknieta/0,
+    zamkniete_szklane_drzwiczki/0,
+    zamkniete_dolne_drzwiczki/0,
+    farba_nie_zdrapana/0,
+    zamknieta_skrzynka_na_narzedzia/0.
 
+:- discontiguous uzyj/2,
+                uzyj/1,
+                zobacz/1,
+                rozmawiaj/2,
+                idz/1.
 
-:- ensure_loaded(map),
-    ensure_loaded(inventory),
-    ensure_loaded(wings),
-    ensure_loaded(pokoj),
-    ensure_loaded(dialogue),
-    ensure_loaded(items),
-    ensure_loaded(descriptions),
-    ensure_loaded(tail),
-    ensure_loaded(head),
-    ensure_loaded(object-usage).
+:- ensure_loaded(map).
+:- ensure_loaded(inventory).
+:- ensure_loaded(wings).
+:- ensure_loaded(pokoj).
+:- ensure_loaded(dialogue).
+:- ensure_loaded(items).
+:- ensure_loaded(descriptions).
+:- ensure_loaded(tail).
+:- ensure_loaded(head).
+:- ensure_loaded(objectusage).
 
 
 die :- finish.
@@ -60,4 +69,4 @@ instrukcja:-
             write("!nne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl.
 
 
-:- intro.
+:- intro, instrukcja, opis.
