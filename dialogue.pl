@@ -55,12 +55,12 @@ rozmawiaj(janusz, chuda_ryba) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot
                             write("I to nie jeden! Jakby pan jakas znalazl, to mielibysmy pyszna kolacje."), nl,
                             write("Zakladam, ze jesli jest tu samiec to pewnie i samica by sie znalazla, bo te stworzenia zazwyczaj sa spotykane w parach.' - opowiadal Janusz."), nl,!.
 
-rozmawiaj(janusz, wedka_bez_haczyka) :- bez_skafandra, pozycja_gracza(pokoj), not(szafka_janusza_zamknięta),
+rozmawiaj(janusz, wedka_bez_haczyka) :- bez_skafandra, pozycja_gracza(pokoj), not(szafka_janusza_zamknieta),
                             write("'Janusz, gdzie do cholery jest haczyk?' - spytal kapitan."), nl,
                             write("'To, panie kapitanie, jest dobre pytanie. Wiem, ze pakowalem go na statek, wiec powinien gdzies byc.' - odrzekl Janusz."), nl,
                             write("'No zobaczymy.'"), nl,!.
 
-rozmawiaj(janusz, przynety) :- bez_skafandra, pozycja_gracza(pokoj), not(szafka_janusza_zamknięta),
+rozmawiaj(janusz, przynety) :- bez_skafandra, pozycja_gracza(pokoj), not(szafka_janusza_zamknieta),
                             write("'Janusz, oswiec mnie, co to za przynety?' - zapytal Bomba."), nl,
                             write("'Panie Kapitanie, czerwona to kawalek miesa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze...' - odrzekl Janusz."), nl,!.
 
