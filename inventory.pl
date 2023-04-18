@@ -14,7 +14,10 @@ podnies(X) :- pozycja_gracza(Y),
             assert(przedmiot_w(X, ekwipunek)),
             write("picked up "), write(X).
 
-podnies(_) :- write("not here").
+podnies(_) :-
+            \+pozycja_gracza(Y),
+            \+przedmiot_w(X, Y),
+            write("not here").
 
 upusc(X) :- pozycja_gracza(Y),
             przedmiot_w(X, ekwipunek),
