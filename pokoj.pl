@@ -1,6 +1,9 @@
-:- dynamic klodka_zamknieta/1, skafander_zbadany/1, w_skafandrze/1, janusz_gotuje/1.
+#:- dynamic klodka_zamknieta/1, skafander_zbadany/1, w_skafandrze/1, janusz_gotuje/1.
 
 klodka_zamknieta.
+janusz_nie_gotuje.
+skafander_niezbadany.
+bez_skafandra.
 
 zobacz(kalendarz) :- pozycja_gracza(pokoj), 
                     write("Modelka kusi oczy kapitana. To już koncowka marca."), nl,
@@ -10,7 +13,7 @@ zobacz(kalendarz) :- pozycja_gracza(pokoj),
                     write("Dzień po pierwszym stycznia nie zatrzymał się w jego pamięci. Aldona nadal ma mu to za złe."), nl,!.
 
 zobacz(kuchnia) :- pozycja_gracza(pokoj),
-                    janusz_gotuje,
+                    not(janusz_nie_gotuje),
                     write("Janusz usilnie próbuje dojść do porozumienia z otaczającym go syfem."), nl,
                     write("Patrząc na tempo jego działań kapitan dochodzi do wniosku, że chwilę to potrwa zanim dostaną kolację."),!.
 
@@ -19,7 +22,7 @@ zobacz(kuchnia) :-  pozycja_gracza(pokoj),
 
 
 uzyj(kuchnia) :-    pozycja_gracza(pokoj),
-                    janusz_gotuje,
+                    not(janusz_nie_gotuje),
                     write("Kuchnia jest zajęta przez Janusza przygotowującego ryby na dzisiejszą kolacje."), nl,!.
 
 uzyj(kuchnia) :-    pozycja_gracza(pokoj),
@@ -31,21 +34,21 @@ zobacz(skafander) :- klodka_zamknieta,
                     pozycja_gracza(pokoj),
                     write("Gwiezdna Flota postanowiła wyposażyć statki „nowoczesne”, 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrała przetarg skupiła, je ze złomu i wynajęła prywaciarza, aby je połatał za półdarmo."), nl,
-                    write("Gwiezdna Flota jak widać nie oszczędza na bezpieczeństwie swoich żołnierzy. Może i nie były tanie, ale za to były nędzne. Coś za coś."), nln
+                    write("Gwiezdna Flota jak widać nie oszczędza na bezpieczeństwie swoich żołnierzy. Może i nie były tanie, ale za to były nędzne. Coś za coś."), nl,
                     write("Miejmy nadzieję, że wyjście w tym poza statek nie będzie równało się pewnej śmierci."), nl,
                     write("Niestety skafander został zablokowany kłódką z zamkiem na 4 cyfry i przypiętą karteczką z napisem:"), nl,
                     write("„Kod to data urodzin naszego Brajanka, mam nadzieję że pamiętasz!”"), nl,
                     write("„Kurrr…” - wycedził przez zęby Bomba. - „Trudne…” -> zobacz_klodke."), nl,
                     write("[Aby podac kod do klodki, wpisz_kod(XXXX)]"), nl,
-                    assert(skafander_zbadany),!.
+                    retract(skafander_niezbadany),!.
 
 zobacz(skafander) :- write("Gwiezdna Flota postanowiła wyposażyć statki „nowoczesne”, 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrała przetarg skupiła, je ze złomu i wynajęła prywaciarza, aby je połatał za półdarmo."), nl,
-                    write("Gwiezdna Flota jak widać nie oszczędza na bezpieczeństwie swoich żołnierzy. Może i nie były tanie, ale za to były nędzne. Coś za coś."), nln
+                    write("Gwiezdna Flota jak widać nie oszczędza na bezpieczeństwie swoich żołnierzy. Może i nie były tanie, ale za to były nędzne. Coś za coś."), nl,
                     write("Miejmy nadzieję, że wyjście w tym poza statek nie będzie równało się pewnej śmierci."), nl,!.
 
 wpisz_kod(2137) :-  klodka_zamknieta,
-                    skafander_zbadany,
+                    not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
                     write("„Nareszcie… 02.01.2037. Aldona nie mogłaś czegoś łatwiejszego wybrać?” - wyrzucił pod nosem Bomba otwierając zamek."), nl,
                     write("Teraz można zabrać skafander [komenda podnies]"),
@@ -54,7 +57,7 @@ wpisz_kod(2137) :-  klodka_zamknieta,
                     retractall(klodka_zamknieta),!.
 
 wpisz_kod(_) :-     klodka_zamknieta,
-                    skafander_zbadany,
+                    not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
                     write("Pałąki kłódki nie puszczały niczym Mariusz Pudzianowski małego fiata w Siłaczach."), nl,
                     write("„To nie to… kiedy to było?” - zastanawiał się sfrustrowany kapitan."), nl,!.
@@ -78,11 +81,11 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
                     assert(przedmiot_w(wedka_bez_haczyka, pokoj)),
                     assert(przedmiot_w(czerwona_przyneta, pokoj)),
                     assert(przedmiot_w(zielona_przyneta, pokoj)),
-                    assert(przedmiot_w(niebieska_przyneta pokoj)),
+                    assert(przedmiot_w(niebieska_przyneta, pokoj)),
                     szafka_janusza_otwarta,!.
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),
-                    szafka_janusza_otwarta
+                    szafka_janusza_otwarta,
                     write("Pusta szafka stoi już otworem."), nl,!.
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),

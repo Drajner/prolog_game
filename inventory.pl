@@ -1,6 +1,5 @@
 :- dynamic przedmiot_w/2.
 
-:- ensure_loaded(map).
 
 przedmiot_w(ryba, pokoj).
 przedmiot_w(kij, ekwipunek).
