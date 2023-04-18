@@ -1,48 +1,25 @@
-describe(head) :- 
+:- dynamic drabina_w_szafie/0.
+
+zobacz(dziob) :-
     write('Znajdujesz się na dziobie statku. Chyba powienienś znaleźć tu młotek.'), nl,
-    write('W pomieszczeniu znajdują się dwie skrzynia, jedna chyba jest zamknięta'), nl,
-    write('Jest jeszcze trzecia skrzynia na szczycie szafy, tylko jak tam sięgnąć?'), nl.
+    write('W pomieszczeniu znajduje się szafa, na niej leży skrzynia, jednak nie sięgnę tak łatwo.'), nl.
+path(dziob, main, main).
 
-path(head, main, main).
+przedmiot_w(skrzynia, dziob).
+przedmiot_w(szafa, dziob).
 
-at(box_a, head).
-at(box_b, head).
-at(box_c, head).
-at(wardrobe, head).
+zobacz(szafa) :-
+    pozycja_gracza(dziob),
+    drabina_w_szafie,
+    assert(przedmiot_w(drabina, dziob)),
+    retractall(drabina_w_szafie),
+    write('Jest tu drabina.'), !.
 
-can_be_searched(box_a) :-
-    i_am_at(head),
-    at(box_a, head).
+zobacz(szafa) :-
+    write('Nic tu nie ma'), !.
 
-can_be_searched(wardrobe) :-
-    i_am_at(head).
-
-perform_action(wardrobe) :-
-    was_searched(wardrobe),
-    assert(at(ladder, head)), nl, !.
-
-can_be_used(ladder) :-
-    was_searched(wardrobe),
-    i_am_at(head),
-    at(ladder, head).
-
-perform_action(ladder) :-
-    was_used(ladder),
-    assert(can_be_searched(box_b)),
-    write("Now you have access to box B"), nl, !.
-
-perform_action(box_a) :-
-    was_searched(box_a),
-    assert(at(key_a, head)),
-    assert(at(map, head)),
-    assert(at(rubiks_cube, head)),
-    assert(at(canola_oil, head)),
-    assert(at(chain, head)),
-    assert(at(cement, head)),
-    assert(at(thermos, head)),
-    assert(at(matches, head)),
-    write("Znalazłeś w skrzyni kilka przedmiotów: "), nl, !.
-
-perform_action(box_b) :-
-    assert(at(hammer, head)), 
-    write("Znalazłeś młotek :D"), nl, !.
+uzyj(drabina, szafa) :-
+    pozycja_gracza(dziob),
+    przedmiot_w(drabina, ekwipunek),
+    assert(przedmiot_w(mlotek, dziob)),
+    write("W skrzyni jest młotek!"), nl, !.

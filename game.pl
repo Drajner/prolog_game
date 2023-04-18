@@ -62,6 +62,7 @@ napraw_silnik :-
         pozycja_gracza(dziob),
         przedmiot_w(klucz_francuski, ekwipunek),
         przedmiot_w(srubokret, ekwipunek),
+        przedmiot_w(mlotek, ekwipunek),
         write('Z tymi narzędziami na pewno naprawię główny silnik.'),
         write('Stuku, puku, stuku puku.'),
         write('...'),
@@ -69,23 +70,13 @@ napraw_silnik :-
 
 napraw_silnik :-
         pozycja_gracza(dziob),
-        przedmiot_w(klucz_francuski, ekwipunek),
-        write('Potrzebuję śrubokręta, żeby dostać się do środka.'), !.
-
-napraw_silnik :-
-        pozycja_gracza(dziob),
-        przedmiot_w(srubokret, ekwipunek),
-        write('Żeby wymienić śróby potrzebny będzie klucz francuski.'), !.
-
-napraw_silnik :-
-        pozycja_gracza(dziob),
-        write('Potrzebuję śrubokręta i klucza francuskiego.'), !.
+        write('Potrzebne beda: mlotek, klucz_francuski i srubokret.'), !.
 
 napraw_silnik :-
         write('Muszę być na dziobie, żeby to zrobić.'), !.
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
         write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
-        write("powinny byc gdzies na statku. Potrzebne beda: klucz-francuski i srubokret."), nl,
+        write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz_francuski i srubokret."), nl,
         write(""), nl, !.
 
 instrukcja:-
