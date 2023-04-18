@@ -1,6 +1,8 @@
 :- dynamic pozycja_gracza/1, miejsce_na_pokladzie/1.
 
 miejsce(dziob).
+miejsce(head).
+miejsce(main).
 miejsce(pokoj).
 miejsce(przod_ogona).
 miejsce(tyl_ogona).
@@ -9,6 +11,8 @@ miejsce(skrzydlo_prawe).
 miejsce(skrzydlo_lewe).
 
 miejsce_na_pokladzie(dziob).
+miejsce_na_pokladzie(head).
+miejsce_na_pokladzie(main).
 miejsce_na_pokladzie(pokoj).
 miejsce_na_pokladzie(przod_ogona).
 miejsce_na_pokladzie(tyl_ogona).
@@ -32,22 +36,22 @@ idz(X) :- miejsce(X),
         takie_same_miejsca(X,Y),
         retractall(pozycja_gracza(_)),
         assert(pozycja_gracza(X)),
-        write("gone "), write(X).
+        write("gone "), write(X), nl, !.
 
 idz(_) :- write("no way").
 
 otworz_sluze :- pozycja_gracza(sluza),
                 not(miejsce_na_pokladzie(sluza)),
-                write("juz otwarta").
+                write("juz otwarta"), nl, !.
 
 otworz_sluze :- pozycja_gracza(sluza),
                 retract(miejsce_na_pokladzie(sluza)),
-                write("sluza otwarta").
+                write("sluza otwarta"), nl, !.
 
 zamknij_sluze :- pozycja_gracza(sluza),
                  miejsce_na_pokladzie(sluza),
-                 write("juz zamknieta").
+                 write("juz zamknieta"), nl, !.
 
 zamknij_sluze :- pozycja_gracza(sluza),
                  assert(miejsce_na_pokladzie(sluza)),
-                 write("sluza zamknieta").
+                 write("sluza zamknieta"), nl, !.

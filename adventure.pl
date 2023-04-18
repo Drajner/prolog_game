@@ -1,7 +1,7 @@
 /* <The name of this game>, by <your name goes here>. */
 
 :- discontiguous i_am_at/1, 
-    at/2,
+    przedmiot_w/2,
     perform_action/1,
     describe/1,
     path/3,
@@ -9,6 +9,10 @@
     notice_objects_here/0,
     holding/1,
     can_be_used/1,
+    can_be_searched/1,
+    poloz_przedmiot_na/2,
+    nie_da_sie_podniesc/1,
+    pozycja_gracza/1,
     search/1.
 
 :- dynamic i_am_at/1, at/2, holding/1.
@@ -17,8 +21,10 @@
 :- include('main').
 :- include('head').
 :- include('object-usage').
+:- include('inventory').
 
 i_am_at(main).
+pozycja_gracza(main).
 
 path(main, head, head).
 
@@ -60,8 +66,8 @@ drop(_) :-
 
 /* These rules define the direction letters as calls to go/1. */
 
-head :- go(head).
-main :- go(main).
+head :- idz(head).
+main :- idz(main).
 
 n :- go(n).
 
@@ -140,6 +146,7 @@ instructions :-
         write('drop(Object).        -- to put down an object.'), nl,
         write('use(Object).         -- to use an object'), nl,
         write('search(Object).      -- to search an object'), nl,
+        write('uzyj_przedmiotu_na(Obiekt, Przedmiot) --uzyj trzymanego przedmiotu na obiekcie'), nl,
         write('look.                -- to look around you again.'), nl,
         write('instructions.        -- to see this message again.'), nl,
         write('halt.                -- to end the game and quit.'), nl,

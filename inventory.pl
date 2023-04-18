@@ -10,6 +10,7 @@ podnies(X) :- przedmiot_w(X, ekwipunek),
 
 podnies(X) :- pozycja_gracza(Y),
             przedmiot_w(X, Y),
+            not(nie_da_sie_podniesc),
             retract(przedmiot_w(X, Y)),
             assert(przedmiot_w(X, ekwipunek)),
             write("picked up "), write(X).
