@@ -1,6 +1,6 @@
 /* <The name of this game>, by <your name goes here>. */
 
-:- discontiguous i_am_at/1, 
+:- discontiguous i_am_at/1,
     at/2,
     perform_action/1,
     describe/1,
@@ -15,6 +15,9 @@
 :- include('main').
 :- include('head').
 :- include('object-usage').
+:- include('tail').
+:- include('map').
+:- include('inventory').
 
 i_am_at(main).
 
@@ -60,6 +63,7 @@ drop(_) :-
 
 head :- go(head).
 main :- go(main).
+tail :- go(tail).
 
 n :- go(n).
 
