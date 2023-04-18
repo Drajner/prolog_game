@@ -2,6 +2,7 @@
 
 :- discontiguous i_am_at/1, 
     przedmiot_w/2,
+    at/2,
     perform_action/1,
     describe/1,
     path/3,
@@ -13,14 +14,20 @@
     poloz_przedmiot_na/2,
     nie_da_sie_podniesc/1,
     pozycja_gracza/1,
+    zobacz/1,
+    haslo/2,
+    uzyj/2,
+    miejsce_na_pokladzie/1,
     search/1.
 
-:- dynamic i_am_at/1, at/2, holding/1.
+:- dynamic i_am_at/1, at/2, holding/1, pozycja_gracza/1.
 :- retractall(at(_, _)), retractall(i_am_at(_)), retractall(alive(_)).
 
 :- include('main').
 :- include('head').
 :- include('object-usage').
+:- include('tail').
+:- include('map').
 :- include('inventory').
 
 i_am_at(main).
@@ -68,6 +75,7 @@ drop(_) :-
 
 head :- idz(head).
 main :- idz(main).
+tail :- idz(tail).
 
 n :- go(n).
 

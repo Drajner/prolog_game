@@ -3,8 +3,6 @@ describe(head) :-
     write('W pomieszczeniu znajdują się dwie skrzynia, jedna chyba jest zamknięta'), nl,
     write('Jest jeszcze trzecia skrzynia na szczycie szafy, tylko jak tam sięgnąć?'), nl.
 
-path(head, main, main).
-
 przedmiot_w(box_a, head).
 przedmiot_w(box_b, head).
 przedmiot_w(box_c, head).
