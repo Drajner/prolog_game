@@ -53,7 +53,7 @@ intro :- write("Miejsce: Planeta S4+KU"), nl,
         write("'Tepe...' - wypowiedz dowodcy przerwal nagly wstrzas."), nl,
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
         write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
-        write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz-francuski i srubokret."), nl,
+        write("powinny byc gdzies na statku. Potrzebne beda: klucz-francuski i srubokret."), nl,
         write(""), nl,
         opis,
         instrukcja, !.
