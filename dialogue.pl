@@ -51,10 +51,13 @@ rozmawiaj(janusz, chuda_ryba) :- not(w_skafandrze), pozycja_gracza(pokoj), przed
                             write("Zakładam, że jeśli jest tu samiec to pewnie i samica by się znalazła, bo te stworzenia zazwyczaj są spotykane w parach.” - opowiadał Janusz."), nl.
 
 rozmawiaj(janusz, wedka_bez_haczyka) :- not(w_skafandrze), pozycja_gracza(pokoj), szafka_janusza_otwarta,
+                            write("„Janusz, gdzie do cholery jest haczyk?” - spytał kapitan."), nl,
+                            write("„To, panie kapitanie, jest dobre pytanie. Wiem, że pakowałem go na statek, więc powinien gdzieś być.” - odrzekł Janusz."), nl,
+                            write("„No zobaczymy.”"), nl.
 
 rozmawiaj(janusz, przynety) :- not(w_skafandrze), pozycja_gracza(pokoj), szafka_janusza_otwarta,
 
-
+rozmawiaj(janusz, wedka)
 
 rozmawiaj(janusz, gruba_ryba) :- not(w_skafandrze), pozycja_gracza(pokoj), przedmiot_w(gruba_ryba, ekwipunek), przedmiot_w(chuda_ryba, ekwipunek),
                             write("„Cóż za piękna ryba!” - odparł Janusz po wzięciu samicy do rąk. - „Od razu zabieram się do kuchni."), nl,

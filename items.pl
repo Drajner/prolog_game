@@ -11,3 +11,23 @@ uzyj(skafander) :- w_skafandrze,
                     write("Mimo wszystko cały wysiłek był warty uwolnienia się od tego psakudnego kostiumu. Przynajmniej teraz kapitan ma szansę coś usłyszeć"), nl,
                     retractall(w_skafandrze),
                     assert(przedmiot_w(skafander, ekwipunek)).
+
+uzyj(haczyk) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
+                    przedmiot_w(haczyk, ekwipunek),
+                    write("Kapitan przywiązał haczyk do wędki."), nl,
+                    write("[Z ekwipunku znikają wedka_bez_haczyka i haczyk, a pojawia sie wedka.]"), nl,
+                    retract(przedmiot_w(wedka_bez_haczyka, ekwipunek)),
+                    retract(przedmiot_w(haczyk, ekwipunek)),
+                    assert(przedmiot_w(wedka, ekwipunek)).
+
+uzyj(haczyk) :- przedmiot_w(haczyk, ekwipunek),
+                    write("Co by zrobić z tym haczykiem? Pewnie przydałaby się jakaś wędka..."), nl.
+
+uzyj(wedka_bez_haczyka) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
+                    write("Wędką bez haczyka można sobie oczywiście pomachać i poudawać, że łowi się ryby, ale nie przyniesie to efektów."), nl.
+
+uzyj(wedka) :- przedmiot_w(wedka, ekwipunek),
+                    write("Generalnie to chyba do łowienia przydałaby się jeszcze przyneta"), nl.
+
+
+
