@@ -9,7 +9,7 @@ opis :- pozycja_gracza(pokoj), klodka_zamknieta, janusz_nie_gotuje,
         write("Opodal wlazu do sluzy lezy skafander."),
         znajdz_przedmioty(pokoj),!.
 
-opis :- pozycja_gracza(pokoj), not(klodka_zamknieta), janusz_gotuje,
+opis :- pozycja_gracza(pokoj), not(klodka_zamknieta), janusz_nie_gotuje,
         write("Przy stole w pokoju pogrywajac w karty siedza Janusz i Seba. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
         write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie maleńka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
         znajdz_przedmioty(pokoj),!.
