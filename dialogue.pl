@@ -1,3 +1,8 @@
+rozmawiaj(_, _):- w_skafandrze,
+                            write("Niestety nawet najcięższe bluzgi nie są w stanie przebić się przez skafander, więc próby komunikacji w skafandrze są skazane na porażkę."), nl.
+                            
+
+
 rozmawiaj(seba, kuchnia) :- not(w_skafandrze), pozycja_gracza(pokoj),
                             write("„Seba, zajmij się kuchnią! Jest tam potworny syf!” - rozkazał kapitan."), nl,
                             write("„Panie kapitanie teraz jest tura Janusz, ja myłem ostatnio…” - odrzekł Seba."), nl,
@@ -56,8 +61,12 @@ rozmawiaj(janusz, wedka_bez_haczyka) :- not(w_skafandrze), pozycja_gracza(pokoj)
                             write("„No zobaczymy.”"), nl.
 
 rozmawiaj(janusz, przynety) :- not(w_skafandrze), pozycja_gracza(pokoj), szafka_janusza_otwarta,
+                            write("„Janusz, oświeć mnie, co to za przynęty?” - zapytał Bomba."), nl,
+                            write("„Panie Kapitanie, czerwona to kawałek mięsa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieję, że to w czymś pomoże…” - odrzekł Janusz."), nl.
 
-rozmawiaj(janusz, wedka)
+rozmawiaj(janusz, wedka) :- not(w_skafandrze), pozycja_gracza(pokoj), przedmiot_w(wedka, ekwipunek),
+                            write("„Panie kapitanie, ta wędka to istny cud techniki, można nią łowić nawet pod wodą!” - zareklamował Janusz."), nl,
+                            write("„Bardzo mnie to cieszy” - powiedział Bomba, bez wyraźnej radości w głosie."), nl.
 
 rozmawiaj(janusz, gruba_ryba) :- not(w_skafandrze), pozycja_gracza(pokoj), przedmiot_w(gruba_ryba, ekwipunek), przedmiot_w(chuda_ryba, ekwipunek),
                             write("„Cóż za piękna ryba!” - odparł Janusz po wzięciu samicy do rąk. - „Od razu zabieram się do kuchni."), nl,
@@ -70,4 +79,21 @@ rozmawiaj(janusz, gruba_ryba) :- not(w_skafandrze), pozycja_gracza(pokoj), przed
                             retract(przedmiot_w(gruba_ryba, ekwipunek)),
                             retract(przedmiot_w(chuda_ryba, ekwipunek)),
                             assert(janusz_gotuje).
+
+
+rozmawiaj(gruba_ryba, _) :- not(w_skafandrze), przedmiot_w(gruba_ryba,ekwipunek),
+                            write("Niestety dźwięki opuszczające otwór gębowy grubej ryby nie są zrozumiałe dla kapitana Bomby. Szczególnie na trzeźwo."), nl.
+
+rozmawiaj(chuda_ryba, zona) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+
+rozmawiaj(chuda_ryba, mieszkanie) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+
+rozmawiaj(chuda_ryba, separacja) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+
+rozmaiwaj(chyda_ryba, matka) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+
+rozmawiaj(chuda_ryba, _) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+
+
+
 

@@ -7,6 +7,21 @@ uzyj(skafander) :- not(w_skafandrze),
                     retract(przedmiot_w(skafander, ekwipunek)).
 
 uzyj(skafander) :- w_skafandrze,
+                    not(miejsce_na_pokladzie(sluza)),
+                    write("Chęć pooddychania sobie wodą kapitana została natychmiast spełniona. Po zdjęciu hełmu skafandra płuca kapitana natychmiast wypełniły się zawartością oceanu."), nl,
+                    write("KONIEC GRY."), nl,
+                    die.
+
+uzyj(skafander) :- w_skafandrze,
+                    przedmiot_w(chuda_ryba, ekwipunek),
+                    write("Już w momencie zdejmowania hełmu Bomba zorientował się że słyszy nieznajomy głos."), nl,
+                    write("„ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja była *zona*… "), nl,
+                    write("Marzena odeszła ode mnie już jakiś czas temu. Gruba baba…” - wykrzyczało coś piskliwym głosem."), nl,
+                    write("Tytus zorientował się, że za irytujący monolog odpowiada chuda_ryba wyciągnięta z oceanu. Może rozmowa z nią da jakieś interesujące informacje."),
+                    retractall(w_skafandrze),
+                    assert(przedmiot_w(skafander, ekwipunek)).
+
+uzyj(skafander) :- w_skafandrze,
                     write("Wychodzenie ze skafandra okazało się dość trudne, gdyż sprzęt chodził dość opornie."), nl,
                     write("Mimo wszystko cały wysiłek był warty uwolnienia się od tego psakudnego kostiumu. Przynajmniej teraz kapitan ma szansę coś usłyszeć"), nl,
                     retractall(w_skafandrze),
