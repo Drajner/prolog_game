@@ -14,20 +14,20 @@ przedmiot_w(ksiazka, przod_ogona).
 
 zobacz(przod_ogona) :-
             pozycja_gracza(przod_ogona),
-            write('Twoim oczom ukazuje się szara, lekko oświetlona, podłużna przestrzeń.'), nl,
+            write('Twoim oczom ukazuje sie szara, lekko oświetlona, podłużna przestrzeń.'), nl,
             write('Możesz iść na tył ogona.'), nl,
             write('Możesz zobaczyć co jest na prawo lub na lewo.'), nl.
 
 zobacz(prawo) :-
             pozycja_gracza(przod_ogona),
             write('Twoim oczom ukazał się stary brzydki kredens.
-Na górze przeszklony (szklane_drzwiczki), na dole są drzwiczki do szafki (dolne-drzwiczki),
+Na górze przeszklony (szklane_drzwiczki), na dole są drzwiczki do szafki (dolne_drzwiczki),
 pomiędzy, na blacie leży jakaś książka.'), nl.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
             przedmiot_w(haczyk, przod_ogona),
-            write('Ktoś wbił haczyk w ścianę.'), nl.
+            write('Ktoś wbił haczyk w ściane.'), nl.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
@@ -39,7 +39,7 @@ zobacz(lewo) :-
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_szklane_drzwiczki,
-            write('Ani drgną, chyba się zacięły.'), nl.
+            write('Ani drgną, chyba sie zacieły.'), nl.
 
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
@@ -54,7 +54,7 @@ Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
 
 zobacz(ksiazka) :-
             pozycja_gracza(przod_ogona),
-            write('Nie lubię czytać.'), nl.
+            write('Nie lubie czytać.'), nl.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
@@ -81,7 +81,7 @@ haslo(dolne_drzwiczki, kapibara) :-
 
 haslo(dolne_drzwiczki, _) :-
             pozycja_gracza(przod_ogona),
-            write('Nic się nie stało.'), nl.
+            write('Nic sie nie stało.'), nl.
 
 
 uzyj(szalik, kula_do_kregli) :-
@@ -122,7 +122,7 @@ zobacz(tyl_ogona) :-
 Jej rozmiar pozostawia wiele wątpliwości. Jest zamknięta na nietypową kłódkę,
 są na niej trzy przyciski: <^>v chyba należy je wcisnąć w jakiejś sekwencji.
 Aby wpisać hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
-            write('Oprócz tego mogę rozejrzeć się w prawo lub w lewo.'), nl.
+            write('Oprócz tego moge rozejrzeć sie w prawo lub w lewo.'), nl.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
@@ -152,7 +152,7 @@ zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
             farba_nie_zdrapana,
             write('Na ścianie wisi obrazek wsi polskiej.
-Jeden szczegół zwraca uwagę … na polu stoi sobie pies o trzech nogach.
+Jeden szczegół zwraca uwage … na polu stoi sobie pies o trzech nogach.
 Biedak musiał wiele przeżyć. Farba na niebie wygląda jakby była świeższa od reszty.
 Ktoś chciał coś zamalować.'), nl.
 
@@ -160,7 +160,7 @@ zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
             \+farba_nie_zdrapana,
             write('Na ścianie wisi obraz wsi polskiej.
-Jeden szczegół zwraca uwagę … na polu stoi sobie pies o trzech nogach.
+Jeden szczegół zwraca uwage … na polu stoi sobie pies o trzech nogach.
 Biedak musiał wiele przeżyć. Na niebie jest napisane “mcsldctc” pewnie jakiś analfabeta to pisał.'), nl.
 
 uzyj(haczyk, obraz) :-
