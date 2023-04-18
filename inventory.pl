@@ -6,21 +6,21 @@ przedmiot_w(ryba, pokoj).
 przedmiot_w(kij, ekwipunek).
 
 podnies(X) :- przedmiot_w(X, ekwipunek),
-            write("Kapitan trzyma już ten przedmiot w ekwipunku.").
+            write("Kapitan trzyma już ten przedmiot w ekwipunku."), !, nl.
 
 podnies(X) :- pozycja_gracza(Y),
             przedmiot_w(X, Y),
             retract(przedmiot_w(X, Y)),
             assert(przedmiot_w(X, ekwipunek)),
-            write("Bomba podnosi "), write(X).
+            write("Bomba podnosi "), write(X), !, nl.
 
-podnies(_) :- write("Nie ma tu takiego przedmiotu.").
+podnies(_) :- write("Nie ma tu takiego przedmiotu."), nl.
 
 upusc(X) :- pozycja_gracza(Y),
             przedmiot_w(X, ekwipunek),
             retract(przedmiot_w(X,ekwipunek)),
             assert(przedmiot_w(X, Y)),
-            write("Kapitan upuszcza "), write(X).
+            write("Kapitan upuszcza "), write(X), !, nl.
 
 upusc(_) :- write("Kapitan nie dysponuje takim przedmiotem.").
 
