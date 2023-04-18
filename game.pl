@@ -1,6 +1,6 @@
 :- dynamic chuda_ryba_niezlapana/0,
-    klodka_zamknieta/0, 
-    skafander_niezbadany/0,  
+    klodka_zamknieta/0,
+    skafander_niezbadany/0,
     janusz_nie_gotuje/0,
     bez_skafandra/0,
     gruba_ryba_niezlapana/0,
@@ -47,5 +47,31 @@ intro :- write("Miejsce: Planeta S4+KU"), nl,
         write("do roboty. Aby naprawic statek należy glowny silnik, ktory doznal najwiekszych obrażeń podczas wypadku. Narzedzia "), nl,
         write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz-francuski i srubokret."), nl,
         write(""), nl,
-        
+
         opis, !.
+
+napraw_silnik :-
+        pozycja_gracza(dziob),
+        przedmiot_w(klucz_francuski, ekwipunek),
+        przedmiot_w(srubokret, ekwipunek),
+        write('Z tymi narzędziami na pewno naprawię główny silnik.'),
+        write('Stuku, puku, stuku puku.'),
+        write('...'),
+        write('ZWYCIĘSTWO!'), !.
+
+napraw_silnik :-
+        pozycja_gracza(dziob),
+        przedmiot_w(klucz_francuski, ekwipunek),
+        write('Potrzebuję śrubokręta, żeby dostać się do środka.'), !.
+
+napraw_silnik :-
+        pozycja_gracza(dziob),
+        przedmiot_w(srubokret, ekwipunek),
+        write('Żeby wymienić śróby potrzebny będzie klucz francuski.'), !.
+
+napraw_silnik :-
+        pozycja_gracza(dziob),
+        write('Potrzebuję śrubokręta i klucza francuskiego.'), !.
+
+napraw_silnik :-
+        write('Muszę być na dziobie, żeby to zrobić.'), !.

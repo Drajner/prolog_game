@@ -36,10 +36,7 @@ opis :-
 
 opis :-
         pozycja_gracza(tyl_ogona),
-
-opis :-
-        pozycja_gracza(tyl_ogona),
-        zamknieta_skrzynka_na_narzędzia,
+        zamknieta_skrzynka_na_narzedzia,
         write('Stoi tu niewielka skrzynka na narzędzia … albo raczej na narzędzie.
 Jej rozmiar pozostawia wiele wątpliwości. Jest zamknięta na nietypową kłódkę,
 są na niej trzy przyciski: <^>v chyba należy je wcisnąć w jakiejś sekwencji.
@@ -48,13 +45,13 @@ Aby wpisać hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
 
 opis :-
         pozycja_gracza(tyl_ogona),
-        \+zamknieta_skrzynka_na_narzędzia,
+        \+zamknieta_skrzynka_na_narzedzia,
         przedmiot_w(klucz-francuski, tyl_ogona),
         write('W skrzynce jest klucz francuski (klucz-francuski).'), nl.
 
 opis :-
         pozycja_gracza(tyl_ogona),
-        \+zamknieta_skrzynka_na_narzędzia,
+        \+zamknieta_skrzynka_na_narzedzia,
         \+przedmiot_w(klucz-francuski, tyl_ogona),
         write('Już nic tutaj nie ma.'), nl.
 

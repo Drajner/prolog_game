@@ -1,12 +1,12 @@
-:- dynamic zamkniete_szklane_drzwiczki.
-:- dynamic zamkniete_dolne_drzwiczki.
-:- dynamic farba_nie_zdrapana.
-:- dynamic zamknieta_skrzynka_na_narzędzia.
+:- dynamic zamkniete_szklane_drzwiczki/0.
+:- dynamic zamkniete_dolne_drzwiczki/0.
+:- dynamic farba_nie_zdrapana/0.
+:- dynamic zamknieta_skrzynka_na_narzedzia/0.
 
 zamkniete_szklane_drzwiczki.
 zamkniete_dolne_drzwiczki.
 farba_nie_zdrapana.
-zamknieta_skrzynka_na_narzędzia.
+zamknieta_skrzynka_na_narzedzia.
 
 przedmiot_w(haczyk, przod_ogona).
 przedmiot_w(szalik, tyl_ogona).
@@ -21,7 +21,7 @@ zobacz(przod_ogona) :-
 zobacz(prawo) :-
             pozycja_gracza(przod_ogona),
             write('Twoim oczom ukazał się stary brzydki kredens.
-Na górze przeszklony (szklane-drzwiczki), na dole są drzwiczki do szafki (dolne-drzwiczki),
+Na górze przeszklony (szklane_drzwiczki), na dole są drzwiczki do szafki (dolne-drzwiczki),
 pomiędzy, na blacie leży jakaś książka.'), nl.
 
 zobacz(lewo) :-
@@ -36,12 +36,12 @@ zobacz(lewo) :-
 
 % --------------- KREDENS ----------------
 
-zobacz(szklane-drzwiczki) :-
+zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_szklane_drzwiczki,
             write('Ani drgną, chyba się zacięły.'), nl.
 
-zobacz(szklane-drzwiczki) :-
+zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             write('Ktoś widocznie grał na tyle w kółko i krzyżyk.
 W dodatku bardzo nieudolnie, są tam też jakieś znaki bez sensu.
@@ -56,51 +56,51 @@ zobacz(ksiazka) :-
             pozycja_gracza(przod_ogona),
             write('Nie lubię czytać.'), nl.
 
-zobacz(dolne-drzwiczki) :-
+zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_dolne_drzwiczki,
-            write('Zamknięte, na kłódce jest klawiatura literowa do wpisania hasła, limit to 8 znaków. (haslo(dolne-drzwiczki, [haslo]))'), nl.
+            write('Zamknięte, na kłódce jest klawiatura literowa do wpisania hasła, limit to 8 znaków. (haslo(dolne_drzwiczki, [haslo]))'), nl.
 
-zobacz(dolne-drzwiczki) :-
+zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             \+zamkniete_dolne_drzwiczki,
-            przedmiot_w(kula-do-kregli, przod_ogona),
+            przedmiot_w(kula_do_kregli, przod_ogona),
             write('W środku jest kula do kręgli.'), nl.
 
-zobacz(dolne-drzwiczki) :-
+zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             \+zamkniete_dolne_drzwiczki,
-            \+przedmiot_w(kula-do-kregli, przod_ogona),
+            \+przedmiot_w(kula_do_kregli, przod_ogona),
             write('Nic tu nie ma.'), nl.
 
-haslo(dolne-drzwiczki, kapibara) :-
+haslo(dolne_drzwiczki, kapibara) :-
             pozycja_gracza(przod_ogona),
             retractall(zamkniete_dolne_drzwiczki),
-            assert(przedmiot_w(kula-do-kregli, przod_ogona)),
-            write('Kłódka otwiera się. W środku znajduje się kula do kregli (kula-do-kregli).'), nl.
+            assert(przedmiot_w(kula_do_kregli, przod_ogona)),
+            write('Kłódka otwiera się. W środku znajduje się kula do kregli (kula_do_kregli).'), nl.
 
-haslo(dolne-drzwiczki, _) :-
+haslo(dolne_drzwiczki, _) :-
             pozycja_gracza(przod_ogona),
             write('Nic się nie stało.'), nl.
 
 
-uzyj(szalik, kula-do-kregli) :-
+uzyj(szalik, kula_do_kregli) :-
             write('Można tym coś rozwalić albo zabić.'), nl,
-            assert(przedmiot_w(kula-w-szaliku, ekwipunek)),
-            retract(przedmiot_w(kula-do-kregli, ekwipunek)),
+            assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
+            retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula-w-szaliku ląduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
 
-uzyj(kula-do-kregli, szalik) :-
+uzyj(kula_do_kregli, szalik) :-
             write('Można tym coś rozwalić albo zabić.'), nl,
-            assert(przedmiot_w(kula-w-szaliku, ekwipunek)),
-            retract(przedmiot_w(kula-do-kregli, ekwipunek)),
+            assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
+            retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula-w-szaliku ląduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
 
-uzyj(kula-w-szaliku, szklane-drzwiczki) :-
-            przedmiot_w(kula-w-szaliku, ekwipunek),
-            retract(przedmiot_w(kula-w-szaliku, ekwipunek)),
+uzyj(kula_w_szaliku, szklane_drzwiczki) :-
+            przedmiot_w(kula_w_szaliku, ekwipunek),
+            retract(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(zamkniete_szklane_drzwiczki),
             write('BAM! Otwarte.'), nl,
             write('Ktoś widocznie grał na tyle w kółko i krzyżyk.
@@ -117,7 +117,7 @@ Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
-            zamknieta_skrzynka_na_narzędzia,
+            zamknieta_skrzynka_na_narzedzia,
             write('Stoi tu niewielka skrzynka na narzędzia … albo raczej na narzędzie.
 Jej rozmiar pozostawia wiele wątpliwości. Jest zamknięta na nietypową kłódkę,
 są na niej trzy przyciski: <^>v chyba należy je wcisnąć w jakiejś sekwencji.
@@ -126,26 +126,26 @@ Aby wpisać hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
-            \+zamknieta_skrzynka_na_narzędzia,
-            przedmiot_w(klucz-francuski, tyl_ogona),
+            \+zamknieta_skrzynka_na_narzedzia,
+            przedmiot_w(klucz_francuski, tyl_ogona),
             write('W skrzynce jest klucz francuski (klucz-francuski).'), nl.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
-            \+zamknieta_skrzynka_na_narzędzia,
-            \+przedmiot_w(klucz-francuski, tyl_ogona),
+            \+zamknieta_skrzynka_na_narzedzia,
+            \+przedmiot_w(klucz_francuski, tyl_ogona),
             write('Już nic tutaj nie ma.'), nl.
 
 haslo(skrzynka, <>^^>) :-
             pozycja_gracza(tyl_ogona),
-            retractall(zamknieta_skrzynka_na_narzędzia),
-            assert(przedmiot_w(klucz-francuski, tyl_ogona)),
-            write('Skrzynka otwarta, w środku jest klucz francuski (klucz-francuski).'),
+            retractall(zamknieta_skrzynka_na_narzedzia),
+            assert(przedmiot_w(klucz_francuski, tyl_ogona)),
+            write('Skrzynka otwarta, w środku jest klucz francuski (klucz-_francuski).'),
             nl.
 
 haslo(skrzynka, _) :-
             pozycja_gracza(tyl_ogona),
-            zamknieta_skrzynka_na_narzędzia,
+            zamknieta_skrzynka_na_narzedzia,
             write('Niepoprawne.'), nl.
 
 zobacz(prawo) :-
