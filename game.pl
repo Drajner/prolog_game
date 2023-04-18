@@ -54,9 +54,7 @@ intro :- write("Miejsce: Planeta S4+KU"), nl,
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
         write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
         write("powinny byc gdzies na statku. Potrzebne beda: klucz-francuski i srubokret."), nl,
-        write(""), nl,
-        opis,
-        instrukcja, !.
+        write(""), nl, !.
 
 instrukcja:-
             write("KOMENDY:"), nl,
@@ -66,7 +64,8 @@ instrukcja:-
             write("uzyj(przedmiot, przedmiot/obiekt). - uzywa przedmiotu w polaczeniu z obiektem lub innym przedmiotem"), nl,
             write("zobacz(obiekt) - pozwala przyjrzec sie obiektowi lub kierunkowi"), nl,
             write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposarzenie pokoju, janusz tematy wedkarskie)"), nl,
-            write("!nne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl.
+            write("!nne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl,
+            write(""),nl,!.
 
 
 :- intro, instrukcja, opis.
