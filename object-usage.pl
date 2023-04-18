@@ -1,47 +1,45 @@
 :- dynamic was_used/1,
-        can_be_used/1,
-        was_searched/1,
-        can_be_searched/1,
-        perform_action/1,
-        perform_action/2.
+        mozna_uzyc/1,
+        was_przeszukajed/1,
+        mozna_przeszukac/1,
+        wykonaj_akcje/1,
+        wykonaj_akcje/2.
 
-perform_action(_).
+wykonaj_akcje(_).
 
 use(X) :- was_used(X),
         write("it has been already used"), nl, !.
 
-use(X) :- not(can_be_used(X)),
+use(X) :- not(mozna_uzyc(X)),
         write("this item cannot be used"), nl, fail.
 
-use(X) :- can_be_used(X),
-        i_am_przedmiot_w(Place),
+use(X) :- mozna_uzyc(X),
+        pozycja_gracza(Place),
         przedmiot_w(X, Place),
         assert(was_used(X)),
-        perform_action(X),
-        write("successfully used"), nl, !.
+        wykonaj_akcje(X),
+        write("Użyto "), X, nl, !.
 
-search(X) :- was_searched(X),
-        write("it has been already searched"), nl, !.
+przeszukaj(X) :- was_przeszukajed(X),
+        write("Ten obiekt był już przeszukiwany"), nl, !.
 
-search(X) :- not(can_be_searched(X)),
-        write('This object cannot be searched. Maybe it is closed or unreachable'), nl, fail.
+przeszukaj(X) :- not(mozna_przeszukac(X)),
+        write('Tego obiektu nie da się przeszukać'), nl, fail.
 
-search(X) :- can_be_searched(X),
-        i_am_przedmiot_w(Place),
+przeszukaj(X) :- mozna_przeszukac(X),
+        pozycja_gracza(Place),
         przedmiot_w(X, Place),
-        assert(was_searched(X)),
-        perform_action(X),
-        write("successfully searched"), nl,
+        assert(was_przeszukajed(X)),
+        wykonaj_akcje(X),
+        write("successfully przeszukajed"), nl,
         notice_objects_here, !.
 
 uzyj_przedmiotu_na(X, Y) :-
         holding(Y),
-        can_be_used(Y),
-        can_be_used(X),
+        mozna_uzyc(Y),
+        mozna_uzyc(X),
         assert(was_used(X)),
-        perform_action(X, Y).
+        wykonaj_akcje(X, Y).
 
-% poloz_przedmiot_na(X, Y) :-
-%         holding(Y).
-        
+    
         

@@ -1,5 +1,4 @@
 miejsce(dziob).
-miejsce(head).
 miejsce(main).
 miejsce(pokoj).
 miejsce(przod_ogona).
@@ -7,6 +6,7 @@ miejsce(tyl_ogona).
 miejsce(sluza).
 miejsce(skrzydlo_prawe).
 miejsce(skrzydlo_lewe).
+miejsce(sterowania).
 
 miejsce_na_pokladzie(dziob).
 miejsce_na_pokladzie(head).
@@ -15,6 +15,7 @@ miejsce_na_pokladzie(pokoj).
 miejsce_na_pokladzie(przod_ogona).
 miejsce_na_pokladzie(tyl_ogona).
 miejsce_na_pokladzie(sluza).
+miejsce_na_pokladzie(sterownia).
 
 not(X) :- X, !, fail ; true.
 

@@ -1,50 +1,50 @@
-describe(head) :- 
+opis(dziob) :- 
     write('Znajdujesz się na dziobie statku. Chyba powienienś znaleźć tu młotek.'), nl,
     write('W pomieszczeniu znajdują się dwie skrzynia, jedna chyba jest zamknięta'), nl,
     write('Jest jeszcze trzecia skrzynia na szczycie szafy, tylko jak tam sięgnąć?'), nl.
 
-przedmiot_w(box_a, head).
-przedmiot_w(box_b, head).
-przedmiot_w(box_c, head).
-przedmiot_w(wardrobe, head).
+przedmiot_w(box_a, dziob).
+przedmiot_w(box_b, dziob).
+przedmiot_w(box_c, dziob).
+przedmiot_w(wardrobe, dziob).
 
-can_be_searched(box_a).
+mozna_przeszukac(box_a).
 
-can_be_used(box_b).
+mozna_uzyc(box_b).
 
-can_be_searched(box_c) :-
+mozna_przeszukac(box_c) :-
     was_used(ladder).
 
-can_be_searched(wardrobe).
+mozna_przeszukac(wardrobe).
 
-perform_action(wardrobe) :-
-    was_searched(wardrobe),
-    assert(przedmiot_w(ladder, head)), nl, !.
+wykonaj_akcje(wardrobe) :-
+    was_przeszukajed(wardrobe),
+    assert(przedmiot_w(ladder, dziob)), nl, !.
 
-can_be_used(ladder) :-
-    was_searched(wardrobe).
+mozna_uzyc(ladder) :-
+    was_przeszukajed(wardrobe).
 
-perform_action(ladder) :-
+wykonaj_akcje(ladder) :-
     was_used(ladder),
     write("Now you have access to box C"), nl, !.
 
-perform_action(box_a) :-
-    was_searched(box_a),
-    assert(przedmiot_w(key_a, head)),
-    assert(przedmiot_w(map, head)),
-    assert(przedmiot_w(rubiks_cube, head)),
-    assert(przedmiot_w(canola_oil, head)),
-    assert(przedmiot_w(chain, head)),
-    assert(przedmiot_w(cement, head)),
-    assert(przedmiot_w(thermos, head)),
-    assert(przedmiot_w(matches, head)),
+wykonaj_akcje(box_a) :-
+    was_przeszukajed(box_a),
+    assert(przedmiot_w(key_a, dziob)),
+    assert(przedmiot_w(map, dziob)),
+    assert(przedmiot_w(rubiks_cube, dziob)),
+    assert(przedmiot_w(canola_oil, dziob)),
+    assert(przedmiot_w(chain, dziob)),
+    assert(przedmiot_w(cement, dziob)),
+    assert(przedmiot_w(thermos, dziob)),
+    assert(przedmiot_w(matches, dziob)),
     write("Znalazłeś w skrzyni kilka przedmiotów: "), nl, !.
 
-perform_action(box_c) :-
-    assert(przedmiot_w(hammer, head)),
-    assert(can_be_used(hammer)),
+wykonaj_akcje(box_c) :-
+    assert(przedmiot_w(hammer, dziob)),
+    assert(mozna_uzyc(hammer)),
     write("Znalazłeś młotek :D"), nl, !.
 
-perform_action(box_b, hammer) :-
+wykonaj_akcje(box_b, hammer) :-
     write('zepsułeś młotek o skrzynie, brawo'), nl,
     die.

@@ -30,10 +30,7 @@
 :- include('map').
 :- include('inventory').
 
-i_am_at(main).
-pozycja_gracza(main).
-
-path(main, head, head).
+pozycja_gracza(sterownia).
 
 
 /* These rules describe how to pick up an object. */
@@ -76,6 +73,9 @@ drop(_) :-
 head :- idz(head).
 main :- idz(main).
 tail :- idz(tail).
+
+dziob :- idz(dziob).
+sterowsnia :-
 
 n :- go(n).
 
