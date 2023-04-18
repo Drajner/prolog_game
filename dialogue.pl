@@ -72,9 +72,9 @@ rozmawiaj(janusz, gruba_ryba) :- not(w_skafandrze), pozycja_gracza(pokoj), przed
                             write("„Cóż za piękna ryba!” - odparł Janusz po wzięciu samicy do rąk. - „Od razu zabieram się do kuchni."), nl,
                             write("Jezu jaki ja jestem głodny! Niech mi pan da i tę drugą, będzie na przystawkę.”"), nl,
                             write("Kapitan przekazał żołnierzowi dwie ryby, a ten prędko przeniósł się do kuchni."), nl,
-                            write("Ryby były abyt zajęte kłótnią pomiędzy sobą, żeby odnotować zmianę.")
+                            write("Ryby były abyt zajęte kłótnią pomiędzy sobą, żeby odnotować zmianę."), nl
                             write("Na siedzeniu, które do niedawna zajmował, znajdował się śrubokręt."), nl,
-                            write("[Ryby zostały oddane, do ekwipunku dodano srubokret.]")
+                            write("[Ryby zostały oddane, do ekwipunku dodano srubokret.]"),
                             assert(przedmiot_w(srubokret, ekwipunek)),
                             retract(przedmiot_w(gruba_ryba, ekwipunek)),
                             retract(przedmiot_w(chuda_ryba, ekwipunek)),
@@ -85,14 +85,29 @@ rozmawiaj(gruba_ryba, _) :- not(w_skafandrze), przedmiot_w(gruba_ryba,ekwipunek)
                             write("Niestety dźwięki opuszczające otwór gębowy grubej ryby nie są zrozumiałe dla kapitana Bomby. Szczególnie na trzeźwo."), nl.
 
 rozmawiaj(chuda_ryba, zona) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+                            write("„Kim jest twoja żona?” - zapytał Bomba nie wiedząc na co się pisze."), nl,
+                            write("„Ahh Marzena… Moja była żona… Poznaliśmy się na dyskotece 10 lat temu. Wtedy jeszcze nie była tak potwornie gruba. "), nl,
+                            write("Co prawda już wtedy była wredna, ale mi to nie przeszkadzało. Byłem wtedy głupi. Teraz nadal jestem, ale mniejsza o to. "), nl,
+                            write("Po roku wzięliśmy ślub i zamieszkaliśmy razem. Wiedliśmy średnio szczęśliwe życie, aż do tego roku. "), nl,
+                            write("Niestety nasze *mieszkanie* zostało zniszczone przez wieloryba i musieliśmy uciekać. Wtedy zaczęły się problemy. "), nl,
+                            write("Marzena uznała, że jestem nieudacznikiem życiowym i że odchodzi. Kiedy mi to mówiła, spadło tu to wspaniałe *mieszkanie*. "), nl,
+                            write("Z braku innych lokali zdecydowaliśmy się tu zamieszkać.  Ja po lewej, ona po prawej.” - paplała ryba."), nl.
 
 rozmawiaj(chuda_ryba, mieszkanie) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
-
-rozmawiaj(chuda_ryba, separacja) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+                            write("„To mieszkanie to silniki mojego statku. Macie je natychmiast opuścić!” - huknął kapitan."), nl,
+                            write("„NIE LICZ NA TO PODŁA GNIDO!” - krzyczało stworzenie - „Moja żona nigdy nie opuści drugiego mieszkania. Jest na to zbyt leniwa."), nl,
+                            write("Tylko jedzenie może ją zmusić do ruszenia się z domu. Kiedyś raz na ruski rok udawało mi się ją wyciągnąć z domu, "), nl,
+                            write("ale od czasu separacji nic jej nie ruszy. Tak, separacja, tak to nazywa. Chociaż dla mnie mógłby to być zwyczajny rozwód. Mam już jej dość. Jest prawie jak moja *matka*.”"), nl.
 
 rozmaiwaj(chyda_ryba, matka) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
-
+                            write("„Dlaczego jest jak twoja matka?” - zabrnął dalej zirytowany już Bomba."), nl,
+                            write("„Obie są grube i leniwe. Tylko by żarły… i to ciągle i ciągle. Na dodatek wybredne są, byle czego nie zjedzą. Warzywa - złe, owoce - złe, mięso - złe."), nl,
+                            write("Tylko wiecznie te robaki i robaki. Ile można żreć robactwo? Przecież tak nie da się żyć!.”"), nl,
+                            write("„Czyli na robaki nęcić…” - wyrzucił pod nosem Tytus."), nl.
+                            
 rozmawiaj(chuda_ryba, _) :- not(w_skafandrze), przedmiot_w(chuda_ryba,ekwipunek),
+                            write("„ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja była *zona*… "), nl,
+                            write("Marzena odeszła ode mnie już jakiś czas temu. Gruba baba…” - darła się ryba, bez uwagi na to co mówił kapitan."), nl.
 
 
 

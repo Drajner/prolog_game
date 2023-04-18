@@ -44,5 +44,11 @@ uzyj(wedka_bez_haczyka) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
 uzyj(wedka) :- przedmiot_w(wedka, ekwipunek),
                     write("Generalnie to chyba do łowienia przydałaby się jeszcze przyneta"), nl.
 
+uzyj(czerwona_przyneta) :-
+
+uzyj(zielona_przyneta) :-
+
+uzyj(niebieska_przyneta) :- 
+
 
 
