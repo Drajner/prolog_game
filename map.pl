@@ -25,37 +25,37 @@ takie_same_miejsca(X, Y) :- not(miejsce_na_pokladzie(X)),
                             not(miejsce_na_pokladzie(Y)).
 
 idz(X) :- pozycja_gracza(X),
-        write("Kapitan Bomba właśnie tam jest"), !, nl.
+        write("Kapitan Bomba wlasnie tam jest"), !, nl.
 
 idz(X) :- miejsce(X),
         pozycja_gracza(Y),
         takie_same_miejsca(X,Y),
         retractall(pozycja_gracza(_)),
         assert(pozycja_gracza(X)),
-        write("Kapitan udał się do "), write(X), !, nl.
+        write("Kapitan udal sie do "), write(X), !, nl.
 
-idz(_) :- write("Niestety nie da się tam pójść.").
+idz(_) :- write("Niestety nie da sie tam pójsc.").
 
 otworz_sluze :- pozycja_gracza(sluza),
                 not(miejsce_na_pokladzie(sluza)),
-                write("Nie ma potrzeby otwierać dobrze otwartej śluzy"),!,nl.
+                write("Nie ma potrzeby otwierac dobrze otwartej sluzy"),!,nl.
 
 otworz_sluze :- pozycja_gracza(sluza),
-                w_skafandrze,
+                not(bez_skafandra),
                 retract(miejsce_na_pokladzie(sluza)),
-                write("Śluza skrzypiąc niemiłosiernie, wypełnia się wodą. Po paru chwilach wypełnia się całkowicie i otwiera wyjście."),!, nl.
+                write("sluza skrzypiac niemilosiernie, wypelnia sie woda. Po paru chwilach wypelnia sie calkowicie i otwiera wyjscie."),!, nl.
 
 otworz_sluze :- pozycja_gracza(sluza),
-                write("Otwarcie śluzy bez żadnego zabezpieczenia nie było najrozsądniejszym pomysłem."),nl,
-                write("Wejście na statek zostało zablokowane, a woda sprawnie zaczęła wypełniać pomieszczenie wypierając tlen."), nl,
-                write("Po chwili nie było już czym oddychać. Kapitan utonął zanim zdążył skląć wszystkich projektantów tego statku."), nl,
+                write("Otwarcie sluzy bez zadnego zabezpieczenia nie bylo najrozsadniejszym pomyslem."),nl,
+                write("Wejscie na statek zostalo zablokowane, a woda sprawnie zaczela wypelniac pomieszczenie wypierajac tlen."), nl,
+                write("Po chwili nie bylo juz czym oddychac. Kapitan utonal zanim zdazyl sklac wszystkich projektantów tego statku."), nl,
                 write("KONIEC GRY"), !, nl,
                 die.
 
 zamknij_sluze :- pozycja_gracza(sluza),
                  miejsce_na_pokladzie(sluza),
-                 write("Ta śluza bardziej się już nie zamknie."), !, nl.
+                 write("Ta sluza bardziej sie juz nie zamknie."), !, nl.
 
 zamknij_sluze :- pozycja_gracza(sluza),
                  assert(miejsce_na_pokladzie(sluza)),
-                 write("Maszyneria z dużym trudem wymienia wodę na powietrze. Po sporym oczekiwaniu wrota na statek otwierają się."), !, nl.
+                 write("Maszyneria z duzym trudem wymienia wode na powietrze. Po sporym oczekiwaniu wrota na statek otwieraja sie."), !, nl.

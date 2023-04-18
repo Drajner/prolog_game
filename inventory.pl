@@ -1,11 +1,7 @@
 :- dynamic przedmiot_w/2.
 
-
-przedmiot_w(ryba, pokoj).
-przedmiot_w(kij, ekwipunek).
-
 podnies(X) :- przedmiot_w(X, ekwipunek),
-            write("Kapitan trzyma już ten przedmiot w ekwipunku."), !, nl.
+            write("Kapitan trzyma juz ten przedmiot w ekwipunku."), !, nl.
 
 podnies(X) :- pozycja_gracza(Y),
             przedmiot_w(X, Y),

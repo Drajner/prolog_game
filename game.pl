@@ -1,9 +1,9 @@
-:- dynamic chuda_ryba_niezlapana/1,
-    klodka_zamknieta/1, 
-    skafander_niezbadany/1,  
-    janusz_nie_gotuje/1,
-    bez_skafandra/1,
-    gruba_ryba_niezlapana/1.
+:- dynamic chuda_ryba_niezlapana/0,
+    klodka_zamknieta/0, 
+    skafander_niezbadany/0,  
+    janusz_nie_gotuje/0,
+    bez_skafandra/0,
+    gruba_ryba_niezlapana/0.
 
 
 :- ensure_loaded(map),

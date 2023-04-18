@@ -1,80 +1,80 @@
 rozmawiaj(_, _):- not(bez_skafandra),
-                            write("Niestety nawet najcięższe bluzgi nie są w stanie przebić się przez skafander, więc próby komunikacji w skafandrze są skazane na porażkę."), nl,!.
+                            write("Niestety nawet najciezsze bluzgi nie sa w stanie przebic sie przez skafander, wiec próby komunikacji w skafandrze sa skazane na porazke."), nl,!.
                             
 
 
 rozmawiaj(seba, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Seba, zajmij się kuchnią! Jest tam potworny syf!” - rozkazał kapitan."), nl,
-                            write("„Panie kapitanie teraz jest tura Janusz, ja myłem ostatnio…” - odrzekł Seba."), nl,
-                            write("„Racja, sprawiedliwość musi być”"), nl,!.
+                            write("„Seba, zajmij sie kuchnia! Jest tam potworny syf!” - rozkazal kapitan."), nl,
+                            write("„Panie kapitanie teraz jest tura Janusz, ja mylem ostatnio…” - odrzekl Seba."), nl,
+                            write("„Racja, sprawiedliwosc musi byc”"), nl,!.
 rozmawiaj(janusz, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Janusz zajmij się kuchnią! Jest tam potworny syf!” - rozkazał kapitan."), nl,
-                            write("„Ale panie kapitanie, przecież i tak nie mamy już jedzenia. Prowiant nam się skończył już wczoraj, a "), nl,
-                            write("jak mieliśmy zamawiać hot-dogi na stacji to zobaczyliśmy tego gnoja i musieliśmy ruszać” - odpowiedział Janusz."), nl,
-                            write("„No tak, rzeczywiście.” "), nl,!.
+                            write("„Janusz zajmij sie kuchnia! Jest tam potworny syf!” - rozkazal kapitan."), nl,
+                            write("„Ale panie kapitanie, przeciez i tak nie mamy juz jedzenia. Prowiant nam sie skończyl juz wczoraj, a "), nl,
+                            write("jak mielismy zamawiac hot-dogi na stacji to zobaczylismy tego gnoja i musielismy ruszac” - odpowiedzial Janusz."), nl,
+                            write("„No tak, rzeczywiscie.” "), nl,!.
 rozmawiaj(seba, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Daj mi klucz do swojej szafki Seba!” - rozkazał kapitan."), nl,
-                            write("„Bardzo bym chciał panie kapitanie, ale ukradli mi go tydzień temu.” - odparł Seba."), nl,
+                            write("„Daj mi klucz do swojej szafki Seba!” - rozkazal kapitan."), nl,
+                            write("„Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzień temu.” - odparl Seba."), nl,
                             write("„Niech to szlag.”"), nl,!.
 rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_wydany,
-                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazał kapitan."), nl,
-                            write("„Panie kapitanie, przed chwilą to zrobiłem. Zapomniał pan?” - odparł Janusz."), nl,
-                            write("„Oczywiście że nie, sprawdzam twoją czujność.”"), nl,!.
+                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazal kapitan."), nl,
+                            write("„Panie kapitanie, przed chwila to zrobilem. Zapomnial pan?” - odparl Janusz."), nl,
+                            write("„Oczywiscie ze nie, sprawdzam twoja czujnosc.”"), nl,!.
 rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazał kapitan."), nl,
-                            write("„Oczywiście panie kapitanie. Tylko niech pan uważa, bo zamek się zacina.” - odparł Janusz."), nl,
+                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazal kapitan."), nl,
+                            write("„Oczywiscie panie kapitanie. Tylko niech pan uwaza, bo zamek sie zacina.” - odparl Janusz."), nl,
                             write("[Do ekwipunku dodano klucz_do_szafki_janusza]"), nl,
                             assert(przedmiot_w(klucz_do_szafki_janusza, ekwipunek)),
                             assert(klucz_janusza_wydany),!.
 rozmawiaj(seba, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Daj mi klucz do swojej szafki Seba!” - rozkazał kapitan."), nl,
-                            write("„Bardzo bym chciał panie kapitanie, ale ukradli mi go tydzień temu.” - odparł Seba."), nl,
+                            write("„Daj mi klucz do swojej szafki Seba!” - rozkazal kapitan."), nl,
+                            write("„Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzień temu.” - odparl Seba."), nl,
                             write("„Niech to szlag.”"), nl,!.
 rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazał kapitan."), nl,
-                            write("„Oczywiście panie kapitanie. Tylko niech pan uważa, bo zamek się zacina.” - odparł Janusz."), nl,
+                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazal kapitan."), nl,
+                            write("„Oczywiscie panie kapitanie. Tylko niech pan uwaza, bo zamek sie zacina.” - odparl Janusz."), nl,
                             write("[Do ekwipunku dodano klucz_do_szafki_janusza]"), nl,
                             assert(przedmiot_w(klucz_do_szafki_janusza, ekwipunek)),
                             assert(klucz_janusza_wydany),!.
 rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_wydany,
-                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazał kapitan."), nl,
-                            write("„Panie kapitanie, przed chwilą to zrobiłem. Zapomniał pan?” - odparł Janusz."), nl,
-                            write("„Oczywiście że nie, sprawdzam twoją czujność.”"), nl,!.
+                            write("„Daj mi klucz do swojej szafki Janusz!” - rozkazal kapitan."), nl,
+                            write("„Panie kapitanie, przed chwila to zrobilem. Zapomnial pan?” - odparl Janusz."), nl,
+                            write("„Oczywiscie ze nie, sprawdzam twoja czujnosc.”"), nl,!.
 rozmawiaj(seba, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Seba co wiesz o tym skafandrze?” - zapytał Bomba."), nl,
-                            write("„Tak widziałem jak ostatnio pańska żona przy nim grzebała jak pana nie było.” - powiedział Seba."), nl,
+                            write("„Seba co wiesz o tym skafandrze?” - zapytal Bomba."), nl,
+                            write("„Tak widzialem jak ostatnio pańska zona przy nim grzebala jak pana nie bylo.” - powiedzial Seba."), nl,
                             write("„To nie brzmi dobrze…”"), nl,!.
 rozmawiaj(janusz, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
-                            write("„Janusz co wiesz o tym skafandrze?” - zapytał Bomba."), nl,
-                            write("„Tak naprawdę to nie wiele.” - powiedział Seba."), nl,
+                            write("„Janusz co wiesz o tym skafandrze?” - zapytal Bomba."), nl,
+                            write("„Tak naprawde to nie wiele.” - powiedzial Seba."), nl,
                             write("„Hmm…”"), nl,!.
 rozmawiaj(janusz, chuda_ryba) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(chuda_ryba, ekwipunek),
-                            write("„Janusz co możesz mi powiedzieć o tej rybie?” - zapytał Bomba."), nl,
-                            write("„To bardzo ciekawy okaz. Czytałem kiedyś w czasopiśmie, że samce i samice tego gatunku bardzo się od siebie różnią."), nl,
-                            write("Samce są małe, chuderlawe i pełne ości. Samice za to są grube i pełne mięsa. Taką samicą to by się człowiek najadł…"), nl,
-                            write("I to nie jeden! Jakby pan jakąś znalazł, to mielibyśmy pyszną kolację."), nl,
-                            write("Zakładam, że jeśli jest tu samiec to pewnie i samica by się znalazła, bo te stworzenia zazwyczaj są spotykane w parach.” - opowiadał Janusz."), nl,!.
+                            write("„Janusz co mozesz mi powiedziec o tej rybie?” - zapytal Bomba."), nl,
+                            write("„To bardzo ciekawy okaz. Czytalem kiedys w czasopismie, ze samce i samice tego gatunku bardzo sie od siebie róznia."), nl,
+                            write("Samce sa male, chuderlawe i pelne osci. Samice za to sa grube i pelne miesa. Taka samica to by sie czlowiek najadl…"), nl,
+                            write("I to nie jeden! Jakby pan jakas znalazl, to mielibysmy pyszna kolacje."), nl,
+                            write("Zakladam, ze jesli jest tu samiec to pewnie i samica by sie znalazla, bo te stworzenia zazwyczaj sa spotykane w parach.” - opowiadal Janusz."), nl,!.
 
 rozmawiaj(janusz, wedka_bez_haczyka) :- bez_skafandra, pozycja_gracza(pokoj), szafka_janusza_otwarta,
-                            write("„Janusz, gdzie do cholery jest haczyk?” - spytał kapitan."), nl,
-                            write("„To, panie kapitanie, jest dobre pytanie. Wiem, że pakowałem go na statek, więc powinien gdzieś być.” - odrzekł Janusz."), nl,
+                            write("„Janusz, gdzie do cholery jest haczyk?” - spytal kapitan."), nl,
+                            write("„To, panie kapitanie, jest dobre pytanie. Wiem, ze pakowalem go na statek, wiec powinien gdzies byc.” - odrzekl Janusz."), nl,
                             write("„No zobaczymy.”"), nl,!.
 
 rozmawiaj(janusz, przynety) :- bez_skafandra, pozycja_gracza(pokoj), szafka_janusza_otwarta,
-                            write("„Janusz, oświeć mnie, co to za przynęty?” - zapytał Bomba."), nl,
-                            write("„Panie Kapitanie, czerwona to kawałek mięsa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieję, że to w czymś pomoże…” - odrzekł Janusz."), nl,!.
+                            write("„Janusz, oswiec mnie, co to za przynety?” - zapytal Bomba."), nl,
+                            write("„Panie Kapitanie, czerwona to kawalek miesa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze…” - odrzekl Janusz."), nl,!.
 
 rozmawiaj(janusz, wedka) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(wedka, ekwipunek),
-                            write("„Panie kapitanie, ta wędka to istny cud techniki, można nią łowić nawet pod wodą!” - zareklamował Janusz."), nl,
-                            write("„Bardzo mnie to cieszy” - powiedział Bomba, bez wyraźnej radości w głosie."), nl,!.
+                            write("„Panie kapitanie, ta wedka to istny cud techniki, mozna nia lowic nawet pod woda!” - zareklamowal Janusz."), nl,
+                            write("„Bardzo mnie to cieszy” - powiedzial Bomba, bez wyraznej radosci w glosie."), nl,!.
 
 rozmawiaj(janusz, gruba_ryba) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(gruba_ryba, ekwipunek), przedmiot_w(chuda_ryba, ekwipunek),
-                            write("„Cóż za piękna ryba!” - odparł Janusz po wzięciu samicy do rąk. - „Od razu zabieram się do kuchni."), nl,
-                            write("Jezu jaki ja jestem głodny! Niech mi pan da i tę drugą, będzie na przystawkę.”"), nl,
-                            write("Kapitan przekazał żołnierzowi dwie ryby, a ten prędko przeniósł się do kuchni."), nl,
-                            write("Ryby były abyt zajęte kłótnią pomiędzy sobą, żeby odnotować zmianę."), nl,
-                            write("Na siedzeniu, które do niedawna zajmował, znajdował się śrubokręt."), nl,
-                            write("[Ryby zostały oddane, do ekwipunku dodano srubokret.]"),
+                            write("„Cóz za piekna ryba!” - odparl Janusz po wzieciu samicy do rak. - „Od razu zabieram sie do kuchni."), nl,
+                            write("Jezu jaki ja jestem glodny! Niech mi pan da i te druga, bedzie na przystawke.”"), nl,
+                            write("Kapitan przekazal zolnierzowi dwie ryby, a ten predko przeniósl sie do kuchni."), nl,
+                            write("Ryby byly abyt zajete klótnia pomiedzy soba, zeby odnotowac zmiane."), nl,
+                            write("Na siedzeniu, które do niedawna zajmowal, znajdowal sie srubokret."), nl,
+                            write("[Ryby zostaly oddane, do ekwipunku dodano srubokret.]"),
                             assert(przedmiot_w(srubokret, ekwipunek)),
                             retract(przedmiot_w(gruba_ryba, ekwipunek)),
                             retract(przedmiot_w(chuda_ryba, ekwipunek)),
@@ -82,32 +82,32 @@ rozmawiaj(janusz, gruba_ryba) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot
 
 
 rozmawiaj(gruba_ryba, _) :- bez_skafandra, przedmiot_w(gruba_ryba,ekwipunek),
-                            write("Niestety dźwięki opuszczające otwór gębowy grubej ryby nie są zrozumiałe dla kapitana Bomby. Szczególnie na trzeźwo."), nl,!.
+                            write("Niestety dzwieki opuszczajace otwór gebowy grubej ryby nie sa zrozumiale dla kapitana Bomby. Szczególnie na trzezwo."), nl,!.
 
 rozmawiaj(chuda_ryba, zona) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
-                            write("„Kim jest twoja żona?” - zapytał Bomba nie wiedząc na co się pisze."), nl,
-                            write("„Ahh Marzena… Moja była żona… Poznaliśmy się na dyskotece 10 lat temu. Wtedy jeszcze nie była tak potwornie gruba. "), nl,
-                            write("Co prawda już wtedy była wredna, ale mi to nie przeszkadzało. Byłem wtedy głupi. Teraz nadal jestem, ale mniejsza o to. "), nl,
-                            write("Po roku wzięliśmy ślub i zamieszkaliśmy razem. Wiedliśmy średnio szczęśliwe życie, aż do tego roku. "), nl,
-                            write("Niestety nasze *mieszkanie* zostało zniszczone przez wieloryba i musieliśmy uciekać. Wtedy zaczęły się problemy. "), nl,
-                            write("Marzena uznała, że jestem nieudacznikiem życiowym i że odchodzi. Kiedy mi to mówiła, spadło tu to wspaniałe *mieszkanie*. "), nl,
-                            write("Z braku innych lokali zdecydowaliśmy się tu zamieszkać.  Ja po lewej, ona po prawej.” - paplała ryba."), nl,!.
+                            write("„Kim jest twoja zona?” - zapytal Bomba nie wiedzac na co sie pisze."), nl,
+                            write("„Ahh Marzena… Moja byla zona… Poznalismy sie na dyskotece 10 lat temu. Wtedy jeszcze nie byla tak potwornie gruba. "), nl,
+                            write("Co prawda juz wtedy byla wredna, ale mi to nie przeszkadzalo. Bylem wtedy glupi. Teraz nadal jestem, ale mniejsza o to. "), nl,
+                            write("Po roku wzielismy slub i zamieszkalismy razem. Wiedlismy srednio szczesliwe zycie, az do tego roku. "), nl,
+                            write("Niestety nasze *mieszkanie* zostalo zniszczone przez wieloryba i musielismy uciekac. Wtedy zaczely sie problemy. "), nl,
+                            write("Marzena uznala, ze jestem nieudacznikiem zyciowym i ze odchodzi. Kiedy mi to mówila, spadlo tu to wspaniale *mieszkanie*. "), nl,
+                            write("Z braku innych lokali zdecydowalismy sie tu zamieszkac.  Ja po lewej, ona po prawej.” - paplala ryba."), nl,!.
 
 rozmawiaj(chuda_ryba, mieszkanie) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
-                            write("„To mieszkanie to silniki mojego statku. Macie je natychmiast opuścić!” - huknął kapitan."), nl,
-                            write("„NIE LICZ NA TO PODŁA GNIDO!” - krzyczało stworzenie - „Moja żona nigdy nie opuści drugiego mieszkania. Jest na to zbyt leniwa."), nl,
-                            write("Tylko jedzenie może ją zmusić do ruszenia się z domu. Kiedyś raz na ruski rok udawało mi się ją wyciągnąć z domu, "), nl,
-                            write("ale od czasu separacji nic jej nie ruszy. Tak, separacja, tak to nazywa. Chociaż dla mnie mógłby to być zwyczajny rozwód. Mam już jej dość. Jest prawie jak moja *matka*.”"), nl,!.
+                            write("„To mieszkanie to silniki mojego statku. Macie je natychmiast opuscic!” - huknal kapitan."), nl,
+                            write("„NIE LICZ NA TO PODlA GNIDO!” - krzyczalo stworzenie - „Moja zona nigdy nie opusci drugiego mieszkania. Jest na to zbyt leniwa."), nl,
+                            write("Tylko jedzenie moze ja zmusic do ruszenia sie z domu. Kiedys raz na ruski rok udawalo mi sie ja wyciagnac z domu, "), nl,
+                            write("ale od czasu separacji nic jej nie ruszy. Tak, separacja, tak to nazywa. Chociaz dla mnie móglby to byc zwyczajny rozwód. Mam juz jej dosc. Jest prawie jak moja *matka*.”"), nl,!.
 
 rozmaiwaj(chuda_ryba, matka) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
-                            write("„Dlaczego jest jak twoja matka?” - zabrnął dalej zirytowany już Bomba."), nl,
-                            write("„Obie są grube i leniwe. Tylko by żarły… i to ciągle i ciągle. Na dodatek wybredne są, byle czego nie zjedzą. Warzywa - złe, owoce - złe, mięso - złe."), nl,
-                            write("Tylko wiecznie te robaki i robaki. Ile można żreć robactwo? Przecież tak nie da się żyć!.”"), nl,
-                            write("„Czyli na robaki nęcić…” - wyrzucił pod nosem Tytus."), nl,!.
+                            write("„Dlaczego jest jak twoja matka?” - zabrnal dalej zirytowany juz Bomba."), nl,
+                            write("„Obie sa grube i leniwe. Tylko by zarly… i to ciagle i ciagle. Na dodatek wybredne sa, byle czego nie zjedza. Warzywa - zle, owoce - zle, mieso - zle."), nl,
+                            write("Tylko wiecznie te robaki i robaki. Ile mozna zrec robactwo? Przeciez tak nie da sie zyc!.”"), nl,
+                            write("„Czyli na robaki necic…” - wyrzucil pod nosem Tytus."), nl,!.
 
 rozmawiaj(chuda_ryba, _) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
-                            write("„ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja była *zona*… "), nl,
-                            write("Marzena odeszła ode mnie już jakiś czas temu. Gruba baba…” - darła się ryba, bez uwagi na to co mówił kapitan."), nl,!.
+                            write("„ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja byla *zona*… "), nl,
+                            write("Marzena odeszla ode mnie juz jakis czas temu. Gruba baba…” - darla sie ryba, bez uwagi na to co mówil kapitan."), nl,!.
 
 
 
