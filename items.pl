@@ -1,16 +1,18 @@
+:- dynamic w_skafandrze/1, gruba_ryba_zlapana/1.
+
 uzyj(skafander) :- not(w_skafandrze),
                     przedmiot_w(skafander, ekwipunek),
                     write("Wpychając się w cuchnący, starożytny już ekwipunek, zauważył, że przez lepiej wewnątrz tego złomu nie oddalać się zanadto od statku, "), nl,
                     write("bo bezpieczniej byłoby już pomylić szubienicę z bungee. Nie dość, że poruszanie się w tym żelastwie jest trudnością, "), nl,
                     write("to przez hełm absolutnie nic nie słychać i nie da się rozmawiać."),
                     assert(w_skafandrze),
-                    retract(przedmiot_w(skafander, ekwipunek)).
+                    retract(przedmiot_w(skafander, ekwipunek)),!.
 
 uzyj(skafander) :- w_skafandrze,
                     not(miejsce_na_pokladzie(sluza)),
                     write("Chęć pooddychania sobie wodą kapitana została natychmiast spełniona. Po zdjęciu hełmu skafandra płuca kapitana natychmiast wypełniły się zawartością oceanu."), nl,
                     write("KONIEC GRY."), nl,
-                    die.
+                    die,!.
 
 uzyj(skafander) :- w_skafandrze,
                     przedmiot_w(chuda_ryba, ekwipunek),
@@ -19,13 +21,13 @@ uzyj(skafander) :- w_skafandrze,
                     write("Marzena odeszła ode mnie już jakiś czas temu. Gruba baba…” - wykrzyczało coś piskliwym głosem."), nl,
                     write("Tytus zorientował się, że za irytujący monolog odpowiada chuda_ryba wyciągnięta z oceanu. Może rozmowa z nią da jakieś interesujące informacje."),
                     retractall(w_skafandrze),
-                    assert(przedmiot_w(skafander, ekwipunek)).
+                    assert(przedmiot_w(skafander, ekwipunek)),!.
 
 uzyj(skafander) :- w_skafandrze,
                     write("Wychodzenie ze skafandra okazało się dość trudne, gdyż sprzęt chodził dość opornie."), nl,
                     write("Mimo wszystko cały wysiłek był warty uwolnienia się od tego psakudnego kostiumu. Przynajmniej teraz kapitan ma szansę coś usłyszeć"), nl,
                     retractall(w_skafandrze),
-                    assert(przedmiot_w(skafander, ekwipunek)).
+                    assert(przedmiot_w(skafander, ekwipunek)),!.
 
 uzyj(haczyk) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
                     przedmiot_w(haczyk, ekwipunek),
@@ -33,37 +35,81 @@ uzyj(haczyk) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
                     write("[Z ekwipunku znikają wedka_bez_haczyka i haczyk, a pojawia sie wedka.]"), nl,
                     retract(przedmiot_w(wedka_bez_haczyka, ekwipunek)),
                     retract(przedmiot_w(haczyk, ekwipunek)),
-                    assert(przedmiot_w(wedka, ekwipunek)).
+                    assert(przedmiot_w(wedka, ekwipunek)),!.
 
 uzyj(haczyk) :- przedmiot_w(haczyk, ekwipunek),
-                    write("Co by zrobić z tym haczykiem? Pewnie przydałaby się jakaś wędka..."), nl.
+                    write("Co by zrobić z tym haczykiem? Pewnie przydałaby się jakaś wędka..."), nl,!.
 
 uzyj(wedka_bez_haczyka) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
-                    write("Wędką bez haczyka można sobie oczywiście pomachać i poudawać, że łowi się ryby, ale nie przyniesie to efektów."), nl.
+                    write("Wędką bez haczyka można sobie oczywiście pomachać i poudawać, że łowi się ryby, ale nie przyniesie to efektów."), nl,!.
 
 uzyj(wedka) :- przedmiot_w(wedka, ekwipunek),
-                    write("Do łowienia przydałaby się jeszcze przyneta"), nl.
+                    write("Do łowienia przydałaby się jeszcze przyneta"), nl,!.
 
 
-uzyj(wedka_z_niebieska_przneta) :- pozycja_gracza(skrzydlo_prawe), not(gruba_ryba_zlapana), przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek),
+uzyj(wedka_z_niebieska_przyneta) :- pozycja_gracza(skrzydlo_prawe), not(gruba_ryba_zlapana), przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek),
                     write("Potężna wodna bestia wypłynęła z silnika i pochwyciła niebieską przynętę. Kapitan musiał się wysilić by złapać tego potwora."), nl,
                     write("[Do ekwipunku dodano gruba_ryba oraz zamieniono wedka_z_niebieska_przyneta na wedka.]"), nl,
                     assert(gruba_ryba_zlapana),
                     assert(przedmiot_w(gruba_ryba,ekwipunek)),
-                    retract(przedmiot_w(wedka_z_niebieska_przneta,ekwipunek)),
-                    assert(przedmiot_w(wedka, ekwipunek)).
+                    retract(przedmiot_w(wedka_z_niebieska_przyneta,ekwipunek)),
+                    assert(przedmiot_w(wedka, ekwipunek)),!.
 
-uzyj(wedka_z_zielona_przneta) :- przedmiot_w(wedka_z_zielona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+uzyj(wedka_z_zielona_przyneta) :- przedmiot_w(wedka_z_zielona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę."),!.
 
-uzyj(wedka_z_czerwona_przneta) :- przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+uzyj(wedka_z_czerwona_przyneta) :- przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę."),!.
 
-uzyj(wedka_z_niebieska_przneta) :- przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę.").
+uzyj(wedka_z_niebieska_przyneta) :- przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek), write("Nic nie chce chwycić za tą przynętę."),!.
 
-uzyj(czerwona_przyneta) :- not(przedmiot_w(wedka,ekwipunek))
+uzyj(czerwona_przyneta) :- przedmiot_w(czerwona_przyneta, ekwipunek),
+                    brak_wedek,
+                    write("Kapitan nie ma jak użyć tej przynęty."),!.
+                            
+uzyj(zielona_przyneta) :- przedmiot_w(zielona_przyneta, ekwipunek)
+                    brak_wedek,
+                    write("Kapitan nie ma jak użyć tej przynęty."),!.
 
-uzyj(zielona_przyneta) :-
+uzyj(niebieska_przyneta) :- przedmiot_w(niebieska_przyneta, ekwipunek)
+                    brak_wedek,
+                    write("Kapitan nie ma jak użyć tej przynęty."),!.
 
-uzyj(niebieska_przyneta) :- 
+uzyj(czerwona_przyneta) :- przedmiot_w(czerwona_przyneta, ekwipunek)
+                    write("Bomba zakłada czerwoną przynęte na wędkę"),
+                    write("[Poprzednia wedka staje się wedka_z_czerwona_przyneta]"),
+                    assert(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),
+                    usun_wedki,!.
+                          
+uzyj(zielona_przyneta) :- przedmiot_w(zielona_przyneta, ekwipunek)
+                    write("Bomba zakłada zieloną przynęte na wędkę"),
+                    write("[Poprzednia wedka staje się wedka_z_zielona_przyneta]"),
+                    assert(przedmiot_w(wedka_z_zielona_przyneta, ekwipunek)),
+                    usun_wedki,!.
+
+uzyj(niebieska_przyneta) :- przedmiot_w(niebieska_przyneta, ekwipunek)
+                    write("Bomba zakłada niebieską przynęte na wędkę"),
+                    write("[Poprzednia wedka staje się wedka_z_niebieska_przyneta]"),
+                    assert(przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek)),
+                    usun_wedki,!.
+
+usun_wedki :-       retract(przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek)),
+                    retract(przedmiot_w(wedka_z_zielona_przyneta, ekwipunek)),
+                    retract(przedmiot_w(wedka_z_czerwona_przynetam, ekwipunek)),
+                    retract(przedmiot_w(wedka, ekwipunek)).
+
+brak_wedek :-       not(przedmiot_w(wedka,ekwipunek)),
+                    not(przedmiot_w(wedka_z_zielona_przyneta,ekwipunek)),
+                    not(przedmiot_w(wedka_z_czerwona_przyneta,ekwipunek)),
+                    not(przedmiot_w(wedka_z_niebieska_przyneta,ekwipunek)).
 
 
+uzyj(mlotek) :- przedmiot_w(mlotek,ekwipunek),
+                    not(chuda_ryba_wyploszona)
+                    pozycja_gracza(skrzydlo_lewe),
+                    write("Kapitan Bomba wielokrotnie uderza młotkiem w silnik, aby wypłoszyć rybę, a ta wypływa prosto w jego ręce."),
+                    write("[Zdobyto chuda_ryba]"),
+                    assert(chuda_ryba_wyploszona),
+                    assert(przedmiot_w(chuda_ryba)),!.
+
+uzyj(mlotek) :- przedmiot_w(mlotek, ekwipunek),
+                    write("Brak tu dobrego celu do tłuczenia."),!.
 
