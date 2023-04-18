@@ -16,3 +16,11 @@
     ensure_loaded(descriptions).
 
 
+die :- finish.
+
+finish :-
+        nl,
+        write('Prosze wpisz "halt." !'),
+        nl.
+
+

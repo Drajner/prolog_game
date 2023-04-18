@@ -65,44 +65,42 @@ uzyj(wedka_z_czerwona_przyneta) :- przedmiot_w(wedka_z_czerwona_przyneta, ekwipu
 uzyj(wedka_z_niebieska_przyneta) :- przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek), write("Nic nie chce chwycic za ta przynete."),!.
 
 uzyj(czerwona_przyneta) :- przedmiot_w(czerwona_przyneta, ekwipunek),
-                    brak_wedek,
+                    not(przedmiot_w(wedka,ekwipunek)),
                     write("Kapitan nie ma jak uzyc tej przynety."),!.
                             
 uzyj(zielona_przyneta) :- przedmiot_w(zielona_przyneta, ekwipunek),
-                    brak_wedek,
+                    not(przedmiot_w(wedka,ekwipunek)),
                     write("Kapitan nie ma jak uzyc tej przynety."),!.
 
 uzyj(niebieska_przyneta) :- przedmiot_w(niebieska_przyneta, ekwipunek),
-                    brak_wedek,
+                    not(przedmiot_w(wedka,ekwipunek)),
                     write("Kapitan nie ma jak uzyc tej przynety."),!.
 
 uzyj(czerwona_przyneta) :- przedmiot_w(czerwona_przyneta, ekwipunek),
                     write("Bomba zaklada czerwona przynete na wedke"),
-                    write("[Poprzednia wedka staje sie wedka_z_czerwona_przyneta]"),
-                    assert(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),
-                    usun_wedki,!.
+                    write("[Poprzednia wedka staje sie wedka_z_czerwona_przyneta, aby zdjac przynete zdejmin_przynete.]"),
+                    retract(przedmiot_w(wedka, ekwipunek)),
+                    assert(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),!.
                           
 uzyj(zielona_przyneta) :- przedmiot_w(zielona_przyneta, ekwipunek),
                     write("Bomba zaklada zielona przynete na wedke"),
-                    write("[Poprzednia wedka staje sie wedka_z_zielona_przyneta]"),
-                    assert(przedmiot_w(wedka_z_zielona_przyneta, ekwipunek)),
-                    usun_wedki,!.
+                    write("[Poprzednia wedka staje sie wedka_z_zielona_przyneta, aby zdjac przynete zdejmin_przynete.]"),
+                    retract(przedmiot_w(wedka, ekwipunek)),
+                    assert(przedmiot_w(wedka_z_zielona_przyneta, ekwipunek)),!.
 
 uzyj(niebieska_przyneta) :- przedmiot_w(niebieska_przyneta, ekwipunek),
                     write("Bomba zaklada niebieska przynete na wedke"),
-                    write("[Poprzednia wedka staje sie wedka_z_niebieska_przyneta]"),
-                    assert(przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek)),
-                    usun_wedki,!.
+                    write("[Poprzednia wedka staje sie wedka_z_niebieska_przyneta, aby zdjac przynete zdejmij_przynete.]"),
+                    retract(przedmiot_w(wedka, ekwipunek)),
+                    assert(przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek)),!.
 
-usun_wedki :-       retract(przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek)),
-                    retract(przedmiot_w(wedka_z_zielona_przyneta, ekwipunek)),
-                    retract(przedmiot_w(wedka_z_czerwona_przynetam, ekwipunek)),
-                    retract(przedmiot_w(wedka, ekwipunek)).
-
-brak_wedek :-       not(przedmiot_w(wedka,ekwipunek)),
-                    not(przedmiot_w(wedka_z_zielona_przyneta,ekwipunek)),
-                    not(przedmiot_w(wedka_z_czerwona_przyneta,ekwipunek)),
-                    not(przedmiot_w(wedka_z_niebieska_przyneta,ekwipunek)).
+zdejmij_przynete :- przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek);przedmiot_w(wedka_z_zielona_przyneta, ekwipunek);przedmiot_w(wedka_z_niebieska_przyneta, ekwipunek),
+                    write("Bomba zdejmuje przynete z wedki."), nl,
+                    write("[Ponownie otrzymujesz wedka.]"),
+                    retract(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),
+                    retract(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),
+                    retract(przedmiot_w(wedka_z_czerwona_przyneta, ekwipunek)),
+                    assert(przedmiot_w(wedka, ekwipunek)).
 
 
 uzyj(mlotek) :- przedmiot_w(mlotek,ekwipunek),
@@ -111,7 +109,7 @@ uzyj(mlotek) :- przedmiot_w(mlotek,ekwipunek),
                     write("Kapitan Bomba wielokrotnie uderza mlotkiem w silnik, aby wyploszyc rybe, a ta wyplywa prosto w jego rece."),
                     write("[Zdobyto chuda_ryba]"),
                     retractall(chuda_ryba_niezlapana),
-                    assert(przedmiot_w(chuda_ryba)),!.
+                    assert(przedmiot_w(chuda_ryba, ekwipunek)),!.
 
 uzyj(mlotek) :- przedmiot_w(mlotek, ekwipunek),
                     write("Brak tu dobrego celu do tluczenia."),!.

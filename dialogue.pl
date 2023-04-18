@@ -62,7 +62,7 @@ rozmawiaj(janusz, wedka_bez_haczyka) :- bez_skafandra, pozycja_gracza(pokoj), no
 
 rozmawiaj(janusz, przynety) :- bez_skafandra, pozycja_gracza(pokoj), not(szafka_janusza_zamknieta),
                             write("'Janusz, oswiec mnie, co to za przynety?' - zapytal Bomba."), nl,
-                            write("'Panie Kapitanie, czerwona to kawalek miesa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze...' - odrzekl Janusz."), nl,!.
+                            write("'Panie Kapitanie, czerwona to kawalek miesa, niebieska to zmielone robaki, a zielona to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze...' - odrzekl Janusz."), nl,!.
 
 rozmawiaj(janusz, wedka) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(wedka, ekwipunek),
                             write("'Panie kapitanie, ta wedka to istny cud techniki, mozna nia lowic nawet pod woda!' - zareklamowal Janusz."), nl,
