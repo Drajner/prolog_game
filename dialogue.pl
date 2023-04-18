@@ -5,7 +5,7 @@ rozmawiaj(_, _):- not(bez_skafandra),
 
 rozmawiaj(seba, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Seba, zajmij sie kuchnia! Jest tam potworny syf!' - rozkazal kapitan."), nl,
-                            write("'Panie kapitanie teraz jest tura Janusz, ja mylem ostatnio…' - odrzekl Seba."), nl,
+                            write("'Panie kapitanie teraz jest tura Janusz, ja mylem ostatnio...' - odrzekl Seba."), nl,
                             write("'Racja, sprawiedliwosc musi byc'"), nl,!.
 rozmawiaj(janusz, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Janusz zajmij sie kuchnia! Jest tam potworny syf!' - rozkazal kapitan."), nl,
@@ -43,15 +43,15 @@ rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza
 rozmawiaj(seba, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Seba co wiesz o tym skafandrze?' - zapytal Bomba."), nl,
                             write("'Tak widzialem jak ostatnio pańska zona przy nim grzebala jak pana nie bylo.' - powiedzial Seba."), nl,
-                            write("'To nie brzmi dobrze…'"), nl,!.
+                            write("'To nie brzmi dobrze...'"), nl,!.
 rozmawiaj(janusz, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Janusz co wiesz o tym skafandrze?' - zapytal Bomba."), nl,
                             write("'Tak naprawde to nie wiele.' - powiedzial Seba."), nl,
-                            write("'Hmm…'"), nl,!.
+                            write("'Hmm...'"), nl,!.
 rozmawiaj(janusz, chuda_ryba) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(chuda_ryba, ekwipunek),
                             write("'Janusz co mozesz mi powiedziec o tej rybie?' - zapytal Bomba."), nl,
                             write("'To bardzo ciekawy okaz. Czytalem kiedys w czasopismie, ze samce i samice tego gatunku bardzo sie od siebie róznia."), nl,
-                            write("Samce sa male, chuderlawe i pelne osci. Samice za to sa grube i pelne miesa. Taka samica to by sie czlowiek najadl…"), nl,
+                            write("Samce sa male, chuderlawe i pelne osci. Samice za to sa grube i pelne miesa. Taka samica to by sie czlowiek najadl..."), nl,
                             write("I to nie jeden! Jakby pan jakas znalazl, to mielibysmy pyszna kolacje."), nl,
                             write("Zakladam, ze jesli jest tu samiec to pewnie i samica by sie znalazla, bo te stworzenia zazwyczaj sa spotykane w parach.' - opowiadal Janusz."), nl,!.
 
@@ -62,7 +62,7 @@ rozmawiaj(janusz, wedka_bez_haczyka) :- bez_skafandra, pozycja_gracza(pokoj), sz
 
 rozmawiaj(janusz, przynety) :- bez_skafandra, pozycja_gracza(pokoj), szafka_janusza_otwarta,
                             write("'Janusz, oswiec mnie, co to za przynety?' - zapytal Bomba."), nl,
-                            write("'Panie Kapitanie, czerwona to kawalek miesa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze…' - odrzekl Janusz."), nl,!.
+                            write("'Panie Kapitanie, czerwona to kawalek miesa, zielona to zmielone robaki, a niebieska to kosmiczny ziemniak. Mam nadzieje, ze to w czyms pomoze...' - odrzekl Janusz."), nl,!.
 
 rozmawiaj(janusz, wedka) :- bez_skafandra, pozycja_gracza(pokoj), przedmiot_w(wedka, ekwipunek),
                             write("'Panie kapitanie, ta wedka to istny cud techniki, mozna nia lowic nawet pod woda!' - zareklamowal Janusz."), nl,
@@ -86,7 +86,7 @@ rozmawiaj(gruba_ryba, _) :- bez_skafandra, przedmiot_w(gruba_ryba,ekwipunek),
 
 rozmawiaj(chuda_ryba, zona) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
                             write("'Kim jest twoja zona?' - zapytal Bomba nie wiedzac na co sie pisze."), nl,
-                            write("'Ahh Marzena… Moja byla zona… Poznalismy sie na dyskotece 10 lat temu. Wtedy jeszcze nie byla tak potwornie gruba. "), nl,
+                            write("'Ahh Marzena... Moja byla zona... Poznalismy sie na dyskotece 10 lat temu. Wtedy jeszcze nie byla tak potwornie gruba. "), nl,
                             write("Co prawda juz wtedy byla wredna, ale mi to nie przeszkadzalo. Bylem wtedy glupi. Teraz nadal jestem, ale mniejsza o to. "), nl,
                             write("Po roku wzielismy slub i zamieszkalismy razem. Wiedlismy srednio szczesliwe zycie, az do tego roku. "), nl,
                             write("Niestety nasze *mieszkanie* zostalo zniszczone przez wieloryba i musielismy uciekac. Wtedy zaczely sie problemy. "), nl,
@@ -101,13 +101,13 @@ rozmawiaj(chuda_ryba, mieszkanie) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwip
 
 rozmaiwaj(chuda_ryba, matka) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
                             write("'Dlaczego jest jak twoja matka?' - zabrnal dalej zirytowany juz Bomba."), nl,
-                            write("'Obie sa grube i leniwe. Tylko by zarly… i to ciagle i ciagle. Na dodatek wybredne sa, byle czego nie zjedza. Warzywa - zle, owoce - zle, mieso - zle."), nl,
+                            write("'Obie sa grube i leniwe. Tylko by zarly... i to ciagle i ciagle. Na dodatek wybredne sa, byle czego nie zjedza. Warzywa - zle, owoce - zle, mieso - zle."), nl,
                             write("Tylko wiecznie te robaki i robaki. Ile mozna zrec robactwo? Przeciez tak nie da sie zyc!.'"), nl,
-                            write("'Czyli na robaki necic…' - wyrzucil pod nosem Tytus."), nl,!.
+                            write("'Czyli na robaki necic...' - wyrzucil pod nosem Tytus."), nl,!.
 
 rozmawiaj(chuda_ryba, _) :- bez_skafandra, przedmiot_w(chuda_ryba,ekwipunek),
-                            write("'ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja byla *zona*… "), nl,
-                            write("Marzena odeszla ode mnie juz jakis czas temu. Gruba baba…' - darla sie ryba, bez uwagi na to co mówil kapitan."), nl,!.
+                            write("'ZOSTAW MNIE TY BYDLAKU! MOJA *ZONA* CI TEGO NIE WYBACZY! Znaczy moja byla *zona*... "), nl,
+                            write("Marzena odeszla ode mnie juz jakis czas temu. Gruba baba...' - darla sie ryba, bez uwagi na to co mówil kapitan."), nl,!.
 
 
 

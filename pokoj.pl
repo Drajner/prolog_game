@@ -10,7 +10,7 @@ bez_skafandra.
 zobacz(kalendarz) :- pozycja_gracza(pokoj), 
                     write("Modelka kusi oczy kapitana. To juz koncowka marca."), nl,
                     write("Dokladniej 26 marca 2039 roku. Za 2 tygodnie powinna przyjsc wyplata i znowu bedzie sie mozna napic."), nl,
-                    write("Byleby nie skończyc tak jak w Nowy Rok dwa lata temu. Wtedy to byla tragedia… Przez bite dwa dni Bomba byl nie do zycia. "), nl,
+                    write("Byleby nie skończyc tak jak w Nowy Rok dwa lata temu. Wtedy to byla tragedia... Przez bite dwa dni Bomba byl nie do zycia. "), nl,
                     write("Ledwo prowadzil rakiete. Nie dotarl na narodziny swojego syna, chociaz i tak by tego nie pamietal."), nl,
                     write("Dzień po pierwszym stycznia nie zatrzymal sie w jego pamieci. Aldona nadal ma mu to za zle."), nl,!.
 
@@ -40,7 +40,7 @@ zobacz(skafander) :- klodka_zamknieta,
                     write("Miejmy nadzieje, ze wyjscie w tym poza statek nie bedzie równalo sie pewnej smierci."), nl,
                     write("Niestety skafander zostal zablokowany klódka z zamkiem na 4 cyfry i przypieta karteczka z napisem:"), nl,
                     write("'Kod to data urodzin naszego Brajanka, mam nadzieje ze pamietasz!'"), nl,
-                    write("'Kurrr…' - wycedzil przez zeby Bomba. - 'Trudne…' -> zobacz_klodke."), nl,
+                    write("'Kurrr...' - wycedzil przez zeby Bomba. - 'Trudne...' -> zobacz_klodke."), nl,
                     write("[Aby podac kod do klodki, wpisz_kod(XXXX)]"), nl,
                     retract(skafander_niezbadany),!.
 
@@ -52,7 +52,7 @@ zobacz(skafander) :- write("Gwiezdna Flota postanowila wyposazyc statki 'nowocze
 wpisz_kod(2137) :-  klodka_zamknieta,
                     not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
-                    write("'Nareszcie… 02.01.2037. Aldona nie moglas czegos latwiejszego wybrac?' - wyrzucil pod nosem Bomba otwierajac zamek."), nl,
+                    write("'Nareszcie... 02.01.2037. Aldona nie moglas czegos latwiejszego wybrac?' - wyrzucil pod nosem Bomba otwierajac zamek."), nl,
                     write("Teraz mozna zabrac skafander [komenda podnies]"),
 
                     assert(przedmiot_w(skafander, pokoj)),
@@ -62,7 +62,7 @@ wpisz_kod(_) :-     klodka_zamknieta,
                     not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
                     write("Palaki klódki nie puszczaly niczym Mariusz Pudzianowski malego fiata w Silaczach."), nl,
-                    write("'To nie to… kiedy to bylo?' - zastanawial sie sfrustrowany kapitan."), nl,!.
+                    write("'To nie to... kiedy to bylo?' - zastanawial sie sfrustrowany kapitan."), nl,!.
 
 wpisz_kod(_) :-     write("Nie ma tu nic co mogloby przyjac kod."), nl,!.
 
