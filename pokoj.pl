@@ -34,17 +34,17 @@ uzyj(kuchnia) :-    write("Nie ma tu kuchni, jesli przez ostatnia godzine caly s
 
 zobacz(skafander) :- klodka_zamknieta,
                     pozycja_gracza(pokoj),
-                    write("Gwiezdna Flota postanowila wyposazyc statki „nowoczesne”, 30-letnie skafandry, UBERSPEIMACHER419."), nl,
+                    write("Gwiezdna Flota postanowila wyposazyc statki 'nowoczesne', 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrala przetarg skupila, je ze zlomu i wynajela prywaciarza, aby je polatal za póldarmo."), nl,
                     write("Gwiezdna Flota jak widac nie oszczedza na bezpieczeństwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
                     write("Miejmy nadzieje, ze wyjscie w tym poza statek nie bedzie równalo sie pewnej smierci."), nl,
                     write("Niestety skafander zostal zablokowany klódka z zamkiem na 4 cyfry i przypieta karteczka z napisem:"), nl,
-                    write("„Kod to data urodzin naszego Brajanka, mam nadzieje ze pamietasz!”"), nl,
-                    write("„Kurrr…” - wycedzil przez zeby Bomba. - „Trudne…” -> zobacz_klodke."), nl,
+                    write("'Kod to data urodzin naszego Brajanka, mam nadzieje ze pamietasz!'"), nl,
+                    write("'Kurrr…' - wycedzil przez zeby Bomba. - 'Trudne…' -> zobacz_klodke."), nl,
                     write("[Aby podac kod do klodki, wpisz_kod(XXXX)]"), nl,
                     retract(skafander_niezbadany),!.
 
-zobacz(skafander) :- write("Gwiezdna Flota postanowila wyposazyc statki „nowoczesne”, 30-letnie skafandry, UBERSPEIMACHER419."), nl,
+zobacz(skafander) :- write("Gwiezdna Flota postanowila wyposazyc statki 'nowoczesne', 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrala przetarg skupila, je ze zlomu i wynajela prywaciarza, aby je polatal za póldarmo."), nl,
                     write("Gwiezdna Flota jak widac nie oszczedza na bezpieczeństwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
                     write("Miejmy nadzieje, ze wyjscie w tym poza statek nie bedzie równalo sie pewnej smierci."), nl,!.
@@ -52,7 +52,7 @@ zobacz(skafander) :- write("Gwiezdna Flota postanowila wyposazyc statki „nowoc
 wpisz_kod(2137) :-  klodka_zamknieta,
                     not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
-                    write("„Nareszcie… 02.01.2037. Aldona nie moglas czegos latwiejszego wybrac?” - wyrzucil pod nosem Bomba otwierajac zamek."), nl,
+                    write("'Nareszcie… 02.01.2037. Aldona nie moglas czegos latwiejszego wybrac?' - wyrzucil pod nosem Bomba otwierajac zamek."), nl,
                     write("Teraz mozna zabrac skafander [komenda podnies]"),
 
                     assert(przedmiot_w(skafander, pokoj)),
@@ -62,7 +62,7 @@ wpisz_kod(_) :-     klodka_zamknieta,
                     not(skafander_niezbadany),
                     pozycja_gracza(pokoj),
                     write("Palaki klódki nie puszczaly niczym Mariusz Pudzianowski malego fiata w Silaczach."), nl,
-                    write("„To nie to… kiedy to bylo?” - zastanawial sie sfrustrowany kapitan."), nl,!.
+                    write("'To nie to… kiedy to bylo?' - zastanawial sie sfrustrowany kapitan."), nl,!.
 
 wpisz_kod(_) :-     write("Nie ma tu nic co mogloby przyjac kod."), nl,!.
 
@@ -92,10 +92,3 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
 
 otworz(szafka_janusza) :- pozycja_gracza(pokoj),
                     write("Ciezko byloby otworzyc szafke bez klucza."), nl,!.
-
-
-
-
-
-
-
