@@ -46,7 +46,7 @@ napraw_silnik :-
         write('Z tymi narzedziami na pewno naprawie glówny silnik.'),
         write('Stuku, puku, stuku puku.'),
         write('...'),
-        write('ZWYCIeSTWO!'), !.
+        write('ZWYCIESTWO!'), !.
 
 napraw_silnik :-
         pozycja_gracza(dziob),
