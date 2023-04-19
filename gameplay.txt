@@ -28,6 +28,7 @@ idz(pokoj).
 uzyj(skafander).
 rozmawiaj(chuda_ryba, zona).
 rozmawiaj(chuda_ryba, mieszkanie).
+rozmawiaj(chuda_ryba, matka).
 rozmawiaj(janusz, przynety).
 idz(przod_ogona).
 podnies(haczyk).
