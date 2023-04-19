@@ -5,10 +5,13 @@
     bez_skafandra/0,
     gruba_ryba_niezlapana/0,
     szafka_janusza_zamknieta/0,
+
     zamkniete_szklane_drzwiczki/0,
     zamkniete_dolne_drzwiczki/0,
     farba_nie_zdrapana/0,
-    zamknieta_skrzynka_na_narzedzia/0.
+    zamknieta_skrzynka_na_narzedzia/0,
+
+    drabina_w_szafie/0.
 
 :- discontiguous uzyj/2,
                 uzyj/1,
@@ -18,14 +21,10 @@
 
 :- ensure_loaded(map).
 :- ensure_loaded(inventory).
-:- ensure_loaded(wings).
-:- ensure_loaded(pokoj).
+:- ensure_loaded(locations).
 :- ensure_loaded(dialogue).
 :- ensure_loaded(items).
 :- ensure_loaded(descriptions).
-:- ensure_loaded(tail).
-:- ensure_loaded(head).
-:- ensure_loaded(objectusage).
 
 
 die :- finish.
@@ -73,7 +72,7 @@ napraw_silnik :-
         write('Potrzebne beda: mlotek, klucz_francuski i srubokret.'), !.
 
 napraw_silnik :-
-        write('Muszę być na dziobie, żeby to zrobić.'), !.
+        write('Muszę być na dziobie, żeby to zrobić.'), nl,
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
         write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
         write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz_francuski i srubokret."), nl,

@@ -3,6 +3,8 @@
 gruba_ryba_niezlapana.
 chuda_ryba_niezlapana.
 
+% pokoj + skrzydla
+
 uzyj(skafander) :- bez_skafandra,
                     przedmiot_w(skafander, ekwipunek),
                     write("Wpychajac sie w cuchnacy, starozytny juz ekwipunek, zauwazyl, ze przez lepiej wewnatrz tego zlomu nie oddalac sie zanadto od statku, "), nl,
@@ -113,4 +115,65 @@ uzyj(mlotek) :- przedmiot_w(mlotek,ekwipunek),
 
 uzyj(mlotek) :- przedmiot_w(mlotek, ekwipunek),
                     write("Brak tu dobrego celu do tluczenia."),!.
+
+
+uzyj(kuchnia) :-    pozycja_gracza(pokoj),
+                    not(janusz_nie_gotuje),
+                    write("Kuchnia jest zajeta przez Janusza przygotowujacego ryby na dzisiejsza kolacje."), nl,!.
+
+uzyj(kuchnia) :-    pozycja_gracza(pokoj),
+                    write("Kapitanowi nie przystoi gotowac na swoim statku, przeciez ma od tego ludzi."), nl,!.
+
+uzyj(kuchnia) :-    write("Nie ma tu kuchni, jesli przez ostatnia godzine caly statek magicznie nie pozmienial swojego wyposazenia, to powinna nadal byc w pokoju."), nl,!.
+
+% dziob
+
+uzyj(drabina, szafa) :-
+    pozycja_gracza(dziob),
+    przedmiot_w(drabina, ekwipunek),
+    assert(przedmiot_w(mlotek, dziob)),
+    write("W skrzyni jest młotek!"), nl, !.
+
+% przod_ogona
+
+
+uzyj(szalik, kula_do_kregli) :-
+            write('Można tym coś rozwalić albo zabić.'), nl,
+            assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
+            retract(przedmiot_w(kula_do_kregli, ekwipunek)),
+            retract(przedmiot_w(szalik, ekwipunek)),
+            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
+
+uzyj(kula_do_kregli, szalik) :-
+            write('Można tym coś rozwalić albo zabić.'), nl,
+            assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
+            retract(przedmiot_w(kula_do_kregli, ekwipunek)),
+            retract(przedmiot_w(szalik, ekwipunek)),
+            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
+
+uzyj(kula_w_szaliku, szklane_drzwiczki) :-
+            przedmiot_w(kula_w_szaliku, ekwipunek),
+            retract(przedmiot_w(kula_w_szaliku, ekwipunek)),
+            retract(zamkniete_szklane_drzwiczki),
+            write('BAM! Otwarte.'), nl,
+            write('Ktoś widocznie grał na tyle w kółko i krzyżyk.
+W dodatku bardzo nieudolnie, są tam też jakieś znaki bez sensu.
+Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
+            write('< | x | o'), nl,
+            write('—--------'), nl,
+            write('o | o | >'), nl,
+            write('—--------'), nl,
+            write('^ | ^ | >'), nl.
+
+
+% tyl_ogona
+
+
+uzyj(haczyk, obraz) :-
+            pozycja_gracza(tyl_ogona),
+            przedmiot_w(haczyk, ekwipunek),
+            retract(przedmiot_w(haczyk, ekwipunek)),
+            retractall(farba_nie_zdrapana),
+            write('Jest tu napisane “mcsldctc” pewnie jakiś analfabeta to pisał.'), nl.
+
 
