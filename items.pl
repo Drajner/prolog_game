@@ -165,6 +165,19 @@ Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('—--------'), nl,
             write('^ | ^ | >'), nl.
 
+uzyj(mlotek, szklane_drzwiczki) :-
+            przedmiot_w(mlotek, ekwipunek),
+            retract(zamkniete_szklane_drzwiczki),
+            write('BAM! Otwarte.'), nl,
+            write('Ktos widocznie gral na tyle w kólko i krzyzyk.
+W dodatku bardzo nieudolnie, sa tam tez jakies znaki bez sensu.
+Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
+            write('< | x | o'), nl,
+            write('—--------'), nl,
+            write('o | o | >'), nl,
+            write('—--------'), nl,
+            write('^ | ^ | >'), nl.
+
 
 % tyl_ogona
 
@@ -172,7 +185,12 @@ Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
 uzyj(haczyk, obraz) :-
             pozycja_gracza(tyl_ogona),
             przedmiot_w(haczyk, ekwipunek),
-            retract(przedmiot_w(haczyk, ekwipunek)),
+            retractall(farba_nie_zdrapana),
+            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
+
+uzyj(srubokret, obraz) :-
+            pozycja_gracza(tyl_ogona),
+            przedmiot_w(srubokret, ekwipunek),
             retractall(farba_nie_zdrapana),
             write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
 
