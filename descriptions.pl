@@ -1,3 +1,37 @@
+
+intro :- write("Miejsce: Planeta S4+KU"), nl,
+        write("Misja: Nie utonac "), nl,
+        write(" "), nl,
+        write("As Gwiezdnej Floty kapitan Tytus Bomba podczas pogoni za groznym przemytnikiem niekacyzowanych papierosow"), nl,
+        write("znanym jako Waldemar Krzak wlecial w orbite calkowicie pokrytej woda planety S4+KU. Przestepca pragnac "), nl,
+        write("wymanewrowac poscig wlecial w sztorm. Zaloga Orzela 1 nie odstepowala go na krok. Niestety warunki atmosferyczne"), nl,
+        write("nie okazaly sie laskawe i stracily ich z przestworzy prosto w mroczne glebiny oceanu. Ich statek zatrzymal sie gdzies"), nl,
+        write("pomiedzy dnem, a powierzchnia. Teraz Kapitan Bomba oraz jego podwladni Janusz i Seba musza znalezc sposob, aby"), nl,
+        write("wydostac zniszczony upadkiem pojazd z tego potrzasku..."), nl,
+        write(""), nl,
+        write("'Zostawcie juz te cholerne karty i wezcie sie do roboty!'"), nl,
+        write("'Ale panie kapitanie my nie mamy pojecia co mamy tutaj zrobic, wiec przed smiercia mozemy sobie chociaz pograc.' - "), nl,
+        write("odrzekl zrezygnowany zolnierz - 'Makao!'"), nl,
+        write("'Janusz, my gramy w pokera.' - upomnial kolege Seba "), nl,
+        write("'I po makale! Znowu wygralem!'"), nl,
+        write("'Tepe...' - wypowiedz dowodcy przerwal nagly wstrzas."), nl,
+        write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
+        write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
+        write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz-francuski i srubokret."), nl,
+        write(""), nl, !.
+
+instrukcja :- write("KOMENDY:"), nl,
+            write("idz(miejsce). - pozwala poruszac sie po statku i nie tylko (dostepne miejsca to dziob, pokoj, przod_ogona, tyl_ogona, sluza, skrzydlo_prawe, skrzydlo_lewe)"), nl,
+            write("opis. - wyswietla opis miejsca"), nl,
+            write("uzyj(przedmiot). - uzywa pojedynczego przedmiotu (w przypadku skafandra uzycie oznacza zalozenie lub zdjecie), czasem pozwala na dolaczenie mniejszego przedmiotu do posiadanego wiekszego"), nl,
+            write("uzyj(przedmiot, przedmiot/obiekt). - uzywa przedmiotu w polaczeniu z obiektem lub innym przedmiotem"), nl,
+            write("zobacz(obiekt) - pozwala przyjrzec sie obiektowi lub kierunkowi"), nl,
+            write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposarzenie pokoju, janusz tematy wedkarskie)"), nl,
+            write("napraw_silnik. - pozwala naprawic silnik i ukonczyc gre, gdy w posiadaniu sa mlotek, srubokret i klucz-francuski, a takze jest sie na dziobie"), nl,
+            write("instrukcja. - pokazuje liste komend")
+            write("Inne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl,
+            write(""),nl,!.
+
 opis :- pozycja_gracza(pokoj), not(janusz_nie_gotuje),
         write("Przy stole samotnie siedzi Seba. Janusz dziala w kuchni. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
         write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie maleńka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
@@ -30,18 +64,18 @@ opis :- pozycja_gracza(sluza),
 
 opis :-
         pozycja_gracza(przod_ogona),
-        write('Twoim oczom ukazuje się szara, lekko oświetlona, podłużna przestrzeń.'), nl,
-        write('Możesz iść na tył ogona.'), nl,
-        write('Możesz zobaczyć co jest na prawo lub na lewo.'), nl.
+        write('Twoim oczom ukazuje sie szara, lekko oswietlona, podłuzna przestrzeń.'), nl,
+        write('Mozesz isc na tył ogona.'), nl,
+        write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
 
 opis :-
         pozycja_gracza(tyl_ogona),
         zamknieta_skrzynka_na_narzedzia,
-        write('Stoi tu niewielka skrzynka na narzędzia … albo raczej na narzędzie.
-Jej rozmiar pozostawia wiele wątpliwości. Jest zamknięta na nietypową kłódkę,
-są na niej trzy przyciski: <^>v chyba należy je wcisnąć w jakiejś sekwencji.
-Aby wpisać hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
-        write('Oprócz tego mogę rozejrzeć się w prawo lub w lewo.'), nl.
+        write('Stoi tu niewielka skrzynka na narzedzia … albo raczej na narzedzie.
+Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa kłódke,
+sa na niej trzy przyciski: <^>v chyba nalezy je wcisnac w jakiejs sekwencji.
+Aby wpisac hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
+        write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl.
 
 opis :-
         pozycja_gracza(tyl_ogona),
@@ -53,7 +87,7 @@ opis :-
         pozycja_gracza(tyl_ogona),
         \+zamknieta_skrzynka_na_narzedzia,
         \+przedmiot_w(klucz-francuski, tyl_ogona),
-        write('Już nic tutaj nie ma.'), nl.
+        write('Juz nic tutaj nie ma.'), nl.
 
 znajdz_przedmioty(X) :- przedmiot_w(Y, X),
                         write("Lezy tu "), write(Y), write("."), nl, fail,!.
