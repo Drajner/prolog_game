@@ -1,0 +1,64 @@
+[Uruchomienie gry: swipl game.pl]
+
+Instrukcje prowadzące do wygranej:
+
+zobacz(skafander).
+zobacz(kalendarz).
+wpisz_kod(2137).
+podnies(skafander).
+zobacz(szafki).
+rozmawiaj(janusz, szafka).
+rozmawiaj(seba, szafka).
+otworz(szafka_janusza).
+podnies(wedka_bez_haczyka).
+idz(dziob).
+zobacz(szafa).
+podnies(drabina).
+uzyj(drabina, szafa).
+podnies(mlotek).
+idz(sluza).
+uzyj(skafander).
+otworz_sluze.
+idz(skrzydlo_lewe).
+zobacz(silnik).
+uzyj(mlotek).
+idz(sluza).
+zamknij_sluze.
+idz(pokoj).
+uzyj(skafander).
+rozmawiaj(chuda_ryba, zona).
+rozmawiaj(chuda_ryba, mieszkanie).
+rozmawiaj(janusz, przynety).
+idz(przod_ogona).
+podnies(haczyk).
+zobacz(szklane_drzwiczki).
+zobacz(dolne_drzwiczki).
+idz(tyl_ogona).
+podnies(szalik).
+uzyj(haczyk, obraz).
+idz(przod_ogona).
+haslo(dolne_drzwiczki, kapibara).
+podnies(kula_do_kregli).
+uzyj(kula_do_kregli, szalik).
+uzyj(kula_w_szaliku, szklane_drzwiczki).
+idz(tyl_ogona).
+haslo(skrzynka, <>^^>).
+podnies(klucz_francuski).
+uzyj(haczyk).
+idz(pokoj).
+podnies(niebieska_przyneta).
+uzyj(niebieska_przyneta).
+idz(sluza).
+uzyj(skafander).
+otworz_sluze.
+idz(skrzydlo_prawe).
+zobacz(silnik).
+uzyj(wedka_z_niebieska_przyneta).
+idz(sluza).
+zamknij_sluze.
+uzyj(skafander).
+idz(pokoj).
+rozmawiaj(janusz, gruba_ryba).
+idz(dziob).
+napraw_silnik.
+
