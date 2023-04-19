@@ -32,7 +32,7 @@ idz(X) :- miejsce(X),
         takie_same_miejsca(X,Y),
         retractall(pozycja_gracza(_)),
         assert(pozycja_gracza(X)),
-        write("Kapitan udal sie do "), write(X), !, nl.
+        write("Kapitan udal sie do "), write(X), !, nl,
         opis.
 
 idz(_) :-
