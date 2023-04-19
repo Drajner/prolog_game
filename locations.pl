@@ -220,7 +220,7 @@ zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
             \+zamknieta_skrzynka_na_narzedzia,
             przedmiot_w(klucz_francuski, tyl_ogona),
-            write('W skrzynce jest klucz francuski (klucz-francuski).'), nl,!.
+            write('W skrzynce jest klucz francuski (klucz_francuski).'), nl,!.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
@@ -232,7 +232,7 @@ haslo(skrzynka, <>^^>) :-
             pozycja_gracza(tyl_ogona),
             retractall(zamknieta_skrzynka_na_narzedzia),
             assert(przedmiot_w(klucz_francuski, tyl_ogona)),
-            write('Skrzynka otwarta, w srodku jest klucz francuski (klucz-_francuski).'),
+            write('Skrzynka otwarta, w srodku jest klucz francuski (klucz_francuski).'),
             nl,!.
 
 haslo(skrzynka, _) :-
