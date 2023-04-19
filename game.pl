@@ -5,6 +5,7 @@
     bez_skafandra/0,
     gruba_ryba_niezlapana/0,
     szafka_janusza_zamknieta/0,
+    klucz_janusza_niewydany/0,
 
     zamkniete_szklane_drzwiczki/0,
     zamkniete_dolne_drzwiczki/0,

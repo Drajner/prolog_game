@@ -115,10 +115,6 @@ zobacz(silnik) :- pozycja_gracza(skrzydlo_prawe),
 
 % dziob
 
-zobacz(dziob) :-
-    write('Znajdujesz sie na dziobie statku. Chyba powieniens znalezc tu mlotek.'), nl,
-    write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie siegne tak latwo.'), nl.
-
 
 zobacz(szafa) :-
     pozycja_gracza(dziob),
@@ -141,30 +137,30 @@ zobacz(przod_ogona) :-
             pozycja_gracza(przod_ogona),
             write('Twoim oczom ukazuje sie szara, lekko oswietlona, podluzna przestrzen.'), nl,
             write('Mozesz isc na tyl ogona.'), nl,
-            write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
+            write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl,!.
 
 zobacz(prawo) :-
             pozycja_gracza(przod_ogona),
             write('Twoim oczom ukazal sie stary brzydki kredens.
 Na górze przeszklony (szklane_drzwiczki), na dole sa drzwiczki do szafki (dolne_drzwiczki),
-pomiedzy, na blacie lezy jakas ksiazka.'), nl.
+pomiedzy, na blacie lezy jakas ksiazka.'), nl,!.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
             przedmiot_w(haczyk, przod_ogona),
-            write('Ktos wbil haczyk w sciane.'), nl.
+            write('Ktos wbil haczyk w sciane.'), nl,!.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
             \+przedmiot_w(haczyk, przod_ogona),
-            write('Nic tu nie ma.'), nl.
+            write('Nic tu nie ma.'), nl,!.
 
 % --------------- KREDENS ----------------
 
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_szklane_drzwiczki,
-            write('Ani drgna, chyba sie zaciely.'), nl.
+            write('Ani drgna, chyba sie zaciely.'), nl,!.
 
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
@@ -175,38 +171,38 @@ Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('—--------'), nl,
             write('o | o | >'), nl,
             write('—--------'), nl,
-            write('^ | ^ | >'), nl.
+            write('^ | ^ | >'), nl,!.
 
 zobacz(ksiazka) :-
             pozycja_gracza(przod_ogona),
-            write('Nie lubie czytac.'), nl.
+            write('Nie lubie czytac.'), nl,!.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_dolne_drzwiczki,
-            write('Zamkniete, na klódce jest klawiatura literowa do wpisania hasla, limit to 8 znaków. (haslo(dolne_drzwiczki, [haslo]))'), nl.
+            write('Zamkniete, na klódce jest klawiatura literowa do wpisania hasla, limit to 8 znaków. (haslo(dolne_drzwiczki, [haslo]))'), nl,!.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             \+zamkniete_dolne_drzwiczki,
             przedmiot_w(kula_do_kregli, przod_ogona),
-            write('W srodku jest kula do kregli.'), nl.
+            write('W srodku jest kula do kregli.'), nl,!.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             \+zamkniete_dolne_drzwiczki,
             \+przedmiot_w(kula_do_kregli, przod_ogona),
-            write('Nic tu nie ma.'), nl.
+            write('Nic tu nie ma.'), nl,!.
 
 haslo(dolne_drzwiczki, kapibara) :-
             pozycja_gracza(przod_ogona),
             retractall(zamkniete_dolne_drzwiczki),
             assert(przedmiot_w(kula_do_kregli, przod_ogona)),
-            write('Klódka otwiera sie. W srodku znajduje sie kula do kregli (kula_do_kregli).'), nl.
+            write('Klódka otwiera sie. W srodku znajduje sie kula do kregli (kula_do_kregli).'), nl,!.
 
 haslo(dolne_drzwiczki, _) :-
             pozycja_gracza(przod_ogona),
-            write('Nic sie nie stalo.'), nl.
+            write('Nic sie nie stalo.'), nl,!.
 
 
 % --------TYl OGONA-----------
@@ -218,31 +214,31 @@ zobacz(tyl_ogona) :-
 Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa klódke,
 sa na niej trzy przyciski: <^>v chyba nalezy je wcisnac w jakiejs sekwencji.
 Aby wpisac haslo napisz: haslo(skrzynka, [sekwencja])'), nl,
-            write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl.
+            write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl,!.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
             \+zamknieta_skrzynka_na_narzedzia,
             przedmiot_w(klucz_francuski, tyl_ogona),
-            write('W skrzynce jest klucz francuski (klucz-francuski).'), nl.
+            write('W skrzynce jest klucz francuski (klucz-francuski).'), nl,!.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
             \+zamknieta_skrzynka_na_narzedzia,
             \+przedmiot_w(klucz_francuski, tyl_ogona),
-            write('Juz nic tutaj nie ma.'), nl.
+            write('Juz nic tutaj nie ma.'), nl,!.
 
 haslo(skrzynka, <>^^>) :-
             pozycja_gracza(tyl_ogona),
             retractall(zamknieta_skrzynka_na_narzedzia),
             assert(przedmiot_w(klucz_francuski, tyl_ogona)),
             write('Skrzynka otwarta, w srodku jest klucz francuski (klucz-_francuski).'),
-            nl.
+            nl,!.
 
 haslo(skrzynka, _) :-
             pozycja_gracza(tyl_ogona),
             zamknieta_skrzynka_na_narzedzia,
-            write('Niepoprawne.'), nl.
+            write('Niepoprawne.'), nl,!.
 
 zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
@@ -250,22 +246,22 @@ zobacz(prawo) :-
             write('Na scianie wisi obrazek wsi polskiej.
 Jeden szczegól zwraca uwage … na polu stoi sobie pies o trzech nogach.
 Biedak musial wiele przezyc. Farba na niebie wyglada jakby byla swiezsza od reszty.
-Ktos chcial cos zamalowac.'), nl.
+Ktos chcial cos zamalowac.'), nl,!.
 
 zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
             \+farba_nie_zdrapana,
             write('Na scianie wisi obraz wsi polskiej.
 Jeden szczegól zwraca uwage … na polu stoi sobie pies o trzech nogach.
-Biedak musial wiele przezyc. Na niebie jest napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
+Biedak musial wiele przezyc. Na niebie jest napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl,!.
 
 
 zobacz(lewo) :-
             pozycja_gracza(tyl_ogona),
             przedmiot_w(szalik, tyl_ogona),
-            write('W kacie lezy szalik z napisem POLSKA MISTRZEM POLSKI w kolorach bialym i czerwonym (szalik).'), nl.
+            write('W kacie lezy szalik z napisem POLSKA MISTRZEM POLSKI w kolorach bialym i czerwonym (szalik).'), nl,!.
 
 zobacz(lewo) :-
             pozycja_gracza(tyl_ogona),
             \+przedmiot_w(szalik, tyl_ogona),
-            write('Nic tu nie ma.'), nl.
+            write('Nic tu nie ma.'), nl,!.

@@ -1,3 +1,5 @@
+klucz_janusza_niewydany.
+
 rozmawiaj(_, _):- not(bez_skafandra),
                             write("Niestety nawet najciezsze bluzgi nie sa w stanie przebic sie przez skafander, wiec próby komunikacji w skafandrze sa skazane na porazke."), nl,!.
                             
@@ -16,13 +18,13 @@ rozmawiaj(seba, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Seba!' - rozkazal kapitan."), nl,
                             write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzien temu.' - odparl Seba."), nl,
                             write("'Niech to szlag.'"), nl,!.
-rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
+rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_niewydany,
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
                             write("'Oczywiscie panie kapitanie. Tylko niech pan uwaza, bo zamek sie zacina.' - odparl Janusz."), nl,
                             write("[Do ekwipunku dodano klucz_do_szafki_janusza]"), nl,
                             assert(przedmiot_w(klucz_do_szafki_janusza, ekwipunek)),
-                            assert(klucz_janusza_wydany),!.
-rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_wydany,
+                            retractall(klucz_janusza_niewydany),!.
+rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
                             write("'Panie kapitanie, przed chwila to zrobilem. Zapomnial pan?' - odparl Janusz."), nl,
                             write("'Oczywiscie ze nie, sprawdzam twoja czujnosc.'"), nl,!.
@@ -30,13 +32,13 @@ rozmawiaj(seba, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Seba!' - rozkazal kapitan."), nl,
                             write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzien temu.' - odparl Seba."), nl,
                             write("'Niech to szlag.'"), nl,!.
-rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
+rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_niewydany,
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
                             write("'Oczywiscie panie kapitanie. Tylko niech pan uwaza, bo zamek sie zacina.' - odparl Janusz."), nl,
                             write("[Do ekwipunku dodano klucz_do_szafki_janusza]"), nl,
                             assert(przedmiot_w(klucz_do_szafki_janusza, ekwipunek)),
-                            assert(klucz_janusza_wydany),!.
-rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_wydany,
+                            retractall(klucz_janusza_niewydany),!.
+rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
                             write("'Panie kapitanie, przed chwila to zrobilem. Zapomnial pan?' - odparl Janusz."), nl,
                             write("'Oczywiscie ze nie, sprawdzam twoja czujnosc.'"), nl,!.

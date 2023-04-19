@@ -34,16 +34,6 @@ uzyj(skafander) :- not(bez_skafandra),
                     assert(bez_skafandra),
                     assert(przedmiot_w(skafander, ekwipunek)),!.
 
-uzyj(haczyk) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
-                    przedmiot_w(haczyk, ekwipunek),
-                    write("Kapitan przywiazal haczyk do wedki."), nl,
-                    write("[Z ekwipunku znikaja wedka_bez_haczyka i haczyk, a pojawia sie wedka.]"), nl,
-                    retract(przedmiot_w(wedka_bez_haczyka, ekwipunek)),
-                    retract(przedmiot_w(haczyk, ekwipunek)),
-                    assert(przedmiot_w(wedka, ekwipunek)),!.
-
-uzyj(haczyk) :- przedmiot_w(haczyk, ekwipunek),
-                    write("Co by zrobic z tym haczykiem? Pewnie przydalaby sie jakas wedka..."), nl,!.
 
 uzyj(wedka_bez_haczyka) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
                     write("Wedka bez haczyka mozna sobie oczywiscie pomachac i poudawac, ze lowi sie ryby, ale nie przyniesie to efektów."), nl,!.
@@ -142,14 +132,14 @@ uzyj(szalik, kula_do_kregli) :-
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl,!.
 
 uzyj(kula_do_kregli, szalik) :-
             write('Mozna tym cos rozwalic albo zabic.'), nl,
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl,!.
 
 uzyj(kula_w_szaliku, szklane_drzwiczki) :-
             przedmiot_w(kula_w_szaliku, ekwipunek),
@@ -163,7 +153,7 @@ Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('—--------'), nl,
             write('o | o | >'), nl,
             write('—--------'), nl,
-            write('^ | ^ | >'), nl.
+            write('^ | ^ | >'), nl,!.
 
 uzyj(mlotek, szklane_drzwiczki) :-
             przedmiot_w(mlotek, ekwipunek),
@@ -176,7 +166,7 @@ Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('—--------'), nl,
             write('o | o | >'), nl,
             write('—--------'), nl,
-            write('^ | ^ | >'), nl.
+            write('^ | ^ | >'), nl,!.
 
 
 % tyl_ogona
@@ -186,12 +176,23 @@ uzyj(haczyk, obraz) :-
             pozycja_gracza(tyl_ogona),
             przedmiot_w(haczyk, ekwipunek),
             retractall(farba_nie_zdrapana),
-            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
+            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl,!.
+
+uzyj(haczyk) :- przedmiot_w(wedka_bez_haczyka, ekwipunek),
+                    przedmiot_w(haczyk, ekwipunek),
+                    write("Kapitan przywiazal haczyk do wedki."), nl,
+                    write("[Z ekwipunku znikaja wedka_bez_haczyka i haczyk, a pojawia sie wedka.]"), nl,
+                    retract(przedmiot_w(wedka_bez_haczyka, ekwipunek)),
+                    retract(przedmiot_w(haczyk, ekwipunek)),
+                    assert(przedmiot_w(wedka, ekwipunek)),!.
+
+uzyj(haczyk) :- przedmiot_w(haczyk, ekwipunek),
+                    write("Co by zrobic z tym haczykiem? Pewnie przydalaby sie jakas wedka..."), nl,!.
 
 uzyj(srubokret, obraz) :-
             pozycja_gracza(tyl_ogona),
             przedmiot_w(srubokret, ekwipunek),
             retractall(farba_nie_zdrapana),
-            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
+            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl,!.
 
 
