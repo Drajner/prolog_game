@@ -119,8 +119,6 @@ zobacz(dziob) :-
     write('Znajdujesz sie na dziobie statku. Chyba powieniens znalezc tu mlotek.'), nl,
     write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie siegne tak latwo.'), nl.
 
-przedmiot_w(skrzynia, dziob).
-przedmiot_w(szafa, dziob).
 
 zobacz(szafa) :-
     pozycja_gracza(dziob),
