@@ -9,12 +9,12 @@ rozmawiaj(seba, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Racja, sprawiedliwosc musi byc'"), nl,!.
 rozmawiaj(janusz, kuchnia) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Janusz zajmij sie kuchnia! Jest tam potworny syf!' - rozkazal kapitan."), nl,
-                            write("'Ale panie kapitanie, przeciez i tak nie mamy juz jedzenia. Prowiant nam sie skończyl juz wczoraj, a "), nl,
+                            write("'Ale panie kapitanie, przeciez i tak nie mamy juz jedzenia. Prowiant nam sie skonczyl juz wczoraj, a "), nl,
                             write("jak mielismy zamawiac hot-dogi na stacji to zobaczylismy tego gnoja i musielismy ruszac' - odpowiedzial Janusz."), nl,
                             write("'No tak, rzeczywiscie.' "), nl,!.
 rozmawiaj(seba, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Seba!' - rozkazal kapitan."), nl,
-                            write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzień temu.' - odparl Seba."), nl,
+                            write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzien temu.' - odparl Seba."), nl,
                             write("'Niech to szlag.'"), nl,!.
 rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza_wydany,
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
@@ -28,7 +28,7 @@ rozmawiaj(janusz, szafka) :- bez_skafandra, pozycja_gracza(pokoj),
                             assert(klucz_janusza_wydany),!.
 rozmawiaj(seba, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Seba!' - rozkazal kapitan."), nl,
-                            write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzień temu.' - odparl Seba."), nl,
+                            write("'Bardzo bym chcial panie kapitanie, ale ukradli mi go tydzien temu.' - odparl Seba."), nl,
                             write("'Niech to szlag.'"), nl,!.
 rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Daj mi klucz do swojej szafki Janusz!' - rozkazal kapitan."), nl,
@@ -42,7 +42,7 @@ rozmawiaj(janusz, szafki) :- bez_skafandra, pozycja_gracza(pokoj), klucz_janusza
                             write("'Oczywiscie ze nie, sprawdzam twoja czujnosc.'"), nl,!.
 rozmawiaj(seba, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Seba co wiesz o tym skafandrze?' - zapytal Bomba."), nl,
-                            write("'Tak widzialem jak ostatnio pańska zona przy nim grzebala jak pana nie bylo.' - powiedzial Seba."), nl,
+                            write("'Tak widzialem jak ostatnio panska zona przy nim grzebala jak pana nie bylo.' - powiedzial Seba."), nl,
                             write("'To nie brzmi dobrze...'"), nl,!.
 rozmawiaj(janusz, skafander) :- bez_skafandra, pozycja_gracza(pokoj),
                             write("'Janusz co wiesz o tym skafandrze?' - zapytal Bomba."), nl,

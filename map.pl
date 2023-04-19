@@ -7,14 +7,12 @@ miejsce(tyl_ogona).
 miejsce(sluza).
 miejsce(skrzydlo_prawe).
 miejsce(skrzydlo_lewe).
-miejsce(sterownia).
 
 miejsce_na_pokladzie(dziob).
 miejsce_na_pokladzie(pokoj).
 miejsce_na_pokladzie(przod_ogona).
 miejsce_na_pokladzie(tyl_ogona).
 miejsce_na_pokladzie(sluza).
-miejsce_na_pokladzie(sterownia).
 
 pozycja_gracza(pokoj).
 
