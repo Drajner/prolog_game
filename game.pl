@@ -41,7 +41,7 @@ napraw_silnik :-
         przedmiot_w(klucz_francuski, ekwipunek),
         przedmiot_w(srubokret, ekwipunek),
         przedmiot_w(mlotek, ekwipunek),
-        write('Z tymi narzedziami na pewno naprawie główny silnik.'),
+        write('Z tymi narzedziami na pewno naprawie glówny silnik.'),
         write('Stuku, puku, stuku puku.'),
         write('...'),
         write('ZWYCIeSTWO!'), !.
@@ -53,7 +53,7 @@ napraw_silnik :-
 napraw_silnik :-
         write('Musze być na dziobie, żeby to zrobić.'), nl,
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
-        write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
+        write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazen podczas wypadku. Narzedzia "), nl,
         write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz_francuski i srubokret."), nl,
         write(""), nl, !.
 

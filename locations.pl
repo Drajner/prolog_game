@@ -20,14 +20,14 @@ zamknieta_skrzynka_na_narzedzia.
 zobacz(kalendarz) :- pozycja_gracza(pokoj), 
                     write("Modelka kusi oczy kapitana. To juz koncowka marca."), nl,
                     write("Dokladniej 26 marca 2039 roku. Za 2 tygodnie powinna przyjsc wyplata i znowu bedzie sie mozna napic."), nl,
-                    write("Byleby nie skończyc tak jak w Nowy Rok dwa lata temu. Wtedy to byla tragedia... Przez bite dwa dni Bomba byl nie do zycia. "), nl,
+                    write("Byleby nie skonczyc tak jak w Nowy Rok dwa lata temu. Wtedy to byla tragedia... Przez bite dwa dni Bomba byl nie do zycia. "), nl,
                     write("Ledwo prowadzil rakiete. Nie dotarl na narodziny swojego syna, chociaz i tak by tego nie pamietal."), nl,
-                    write("Dzień po pierwszym stycznia nie zatrzymal sie w jego pamieci. Aldona nadal ma mu to za zle."), nl,!.
+                    write("Dzien po pierwszym stycznia nie zatrzymal sie w jego pamieci. Aldona nadal ma mu to za zle."), nl,!.
 
 zobacz(kuchnia) :- pozycja_gracza(pokoj),
                     not(janusz_nie_gotuje),
                     write("Janusz usilnie próbuje dojsc do porozumienia z otaczajacym go syfem."), nl,
-                    write("Patrzac na tempo jego dzialań kapitan dochodzi do wniosku, ze chwile to potrwa zanim dostana kolacje."),!.
+                    write("Patrzac na tempo jego dzialan kapitan dochodzi do wniosku, ze chwile to potrwa zanim dostana kolacje."),!.
 
 zobacz(kuchnia) :-  pozycja_gracza(pokoj),
                     write("Potworny syf rzucal sie w oczy. Brudne naczynia lezaly wszedzie."), nl,!.
@@ -38,7 +38,7 @@ zobacz(skafander) :- klodka_zamknieta,
                     pozycja_gracza(pokoj),
                     write("Gwiezdna Flota postanowila wyposazyc statki 'nowoczesne', 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrala przetarg skupila, je ze zlomu i wynajela prywaciarza, aby je polatal za póldarmo."), nl,
-                    write("Gwiezdna Flota jak widac nie oszczedza na bezpieczeństwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
+                    write("Gwiezdna Flota jak widac nie oszczedza na bezpieczenstwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
                     write("Miejmy nadzieje, ze wyjscie w tym poza statek nie bedzie równalo sie pewnej smierci."), nl,
                     write("Niestety skafander zostal zablokowany klódka z zamkiem na 4 cyfry i przypieta karteczka z napisem:"), nl,
                     write("'Kod to data urodzin naszego Brajanka, mam nadzieje ze pamietasz!'"), nl,
@@ -48,7 +48,7 @@ zobacz(skafander) :- klodka_zamknieta,
 
 zobacz(skafander) :- write("Gwiezdna Flota postanowila wyposazyc statki 'nowoczesne', 30-letnie skafandry, UBERSPEIMACHER419."), nl,
                     write("Firma, która wygrala przetarg skupila, je ze zlomu i wynajela prywaciarza, aby je polatal za póldarmo."), nl,
-                    write("Gwiezdna Flota jak widac nie oszczedza na bezpieczeństwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
+                    write("Gwiezdna Flota jak widac nie oszczedza na bezpieczenstwie swoich zolnierzy. Moze i nie byly tanie, ale za to byly nedzne. Cos za cos."), nl,
                     write("Miejmy nadzieje, ze wyjscie w tym poza statek nie bedzie równalo sie pewnej smierci."), nl,!.
 
 wpisz_kod(2137) :-  klodka_zamknieta,
@@ -100,7 +100,7 @@ otworz(szafka_janusza) :- pozycja_gracza(pokoj),
 
 zobacz(silnik) :- pozycja_gracza(skrzydlo_lewe), chuda_ryba_niezlapana,
                 write("Stary, trzymajacy sie jeszcze silnik zostal zamieszkaly przez chuda rybe. Niestety jest ona poza zasiegiem reki kapitana."), nl,
-                write("Moze udaloby sie ją wypłoszyć przy użyciu mlotka?"),!.
+                write("Moze udaloby sie ja wyploszyc przy uzyciu mlotka?"),!.
 
 zobacz(silnik) :- pozycja_gracza(skrzydlo_lewe),
                 write("Silnik jest pusty..."),!.
@@ -116,8 +116,8 @@ zobacz(silnik) :- pozycja_gracza(skrzydlo_prawe),
 % dziob
 
 zobacz(dziob) :-
-    write('Znajdujesz się na dziobie statku. Chyba powienienś znaleźć tu młotek.'), nl,
-    write('W pomieszczeniu znajduje się szafa, na niej leży skrzynia, jednak nie sięgnę tak łatwo.'), nl.
+    write('Znajdujesz sie na dziobie statku. Chyba powieniens znalezc tu mlotek.'), nl,
+    write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie siegne tak latwo.'), nl.
 
 przedmiot_w(skrzynia, dziob).
 przedmiot_w(szafa, dziob).
@@ -141,20 +141,20 @@ przedmiot_w(ksiazka, przod_ogona).
 
 zobacz(przod_ogona) :-
             pozycja_gracza(przod_ogona),
-            write('Twoim oczom ukazuje sie szara, lekko oświetlona, podłużna przestrzeń.'), nl,
-            write('Możesz iść na tył ogona.'), nl,
-            write('Możesz zobaczyć co jest na prawo lub na lewo.'), nl.
+            write('Twoim oczom ukazuje sie szara, lekko oswietlona, podluzna przestrzen.'), nl,
+            write('Mozesz isc na tyl ogona.'), nl,
+            write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
 
 zobacz(prawo) :-
             pozycja_gracza(przod_ogona),
-            write('Twoim oczom ukazał się stary brzydki kredens.
-Na górze przeszklony (szklane_drzwiczki), na dole są drzwiczki do szafki (dolne_drzwiczki),
-pomiędzy, na blacie leży jakaś książka.'), nl.
+            write('Twoim oczom ukazal sie stary brzydki kredens.
+Na górze przeszklony (szklane_drzwiczki), na dole sa drzwiczki do szafki (dolne_drzwiczki),
+pomiedzy, na blacie lezy jakas ksiazka.'), nl.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
             przedmiot_w(haczyk, przod_ogona),
-            write('Ktoś wbił haczyk w ściane.'), nl.
+            write('Ktos wbil haczyk w sciane.'), nl.
 
 zobacz(lewo) :-
             pozycja_gracza(przod_ogona),
@@ -166,13 +166,13 @@ zobacz(lewo) :-
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_szklane_drzwiczki,
-            write('Ani drgną, chyba sie zacieły.'), nl.
+            write('Ani drgna, chyba sie zaciely.'), nl.
 
 zobacz(szklane_drzwiczki) :-
             pozycja_gracza(przod_ogona),
-            write('Ktoś widocznie grał na tyle w kółko i krzyżyk.
-W dodatku bardzo nieudolnie, są tam też jakieś znaki bez sensu.
-Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
+            write('Ktos widocznie gral na tyle w kólko i krzyzyk.
+W dodatku bardzo nieudolnie, sa tam tez jakies znaki bez sensu.
+Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('< | x | o'), nl,
             write('—--------'), nl,
             write('o | o | >'), nl,
@@ -181,18 +181,18 @@ Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
 
 zobacz(ksiazka) :-
             pozycja_gracza(przod_ogona),
-            write('Nie lubie czytać.'), nl.
+            write('Nie lubie czytac.'), nl.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             zamkniete_dolne_drzwiczki,
-            write('Zamknięte, na kłódce jest klawiatura literowa do wpisania hasła, limit to 8 znaków. (haslo(dolne_drzwiczki, [haslo]))'), nl.
+            write('Zamkniete, na klódce jest klawiatura literowa do wpisania hasla, limit to 8 znaków. (haslo(dolne_drzwiczki, [haslo]))'), nl.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
             \+zamkniete_dolne_drzwiczki,
             przedmiot_w(kula_do_kregli, przod_ogona),
-            write('W środku jest kula do kręgli.'), nl.
+            write('W srodku jest kula do kregli.'), nl.
 
 zobacz(dolne_drzwiczki) :-
             pozycja_gracza(przod_ogona),
@@ -204,23 +204,23 @@ haslo(dolne_drzwiczki, kapibara) :-
             pozycja_gracza(przod_ogona),
             retractall(zamkniete_dolne_drzwiczki),
             assert(przedmiot_w(kula_do_kregli, przod_ogona)),
-            write('Kłódka otwiera się. W środku znajduje się kula do kregli (kula_do_kregli).'), nl.
+            write('Klódka otwiera sie. W srodku znajduje sie kula do kregli (kula_do_kregli).'), nl.
 
 haslo(dolne_drzwiczki, _) :-
             pozycja_gracza(przod_ogona),
-            write('Nic sie nie stało.'), nl.
+            write('Nic sie nie stalo.'), nl.
 
 
-% --------TYŁ OGONA-----------
+% --------TYl OGONA-----------
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
             zamknieta_skrzynka_na_narzedzia,
-            write('Stoi tu niewielka skrzynka na narzędzia … albo raczej na narzędzie.
-Jej rozmiar pozostawia wiele wątpliwości. Jest zamknięta na nietypową kłódkę,
-są na niej trzy przyciski: <^>v chyba należy je wcisnąć w jakiejś sekwencji.
-Aby wpisać hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
-            write('Oprócz tego moge rozejrzeć sie w prawo lub w lewo.'), nl.
+            write('Stoi tu niewielka skrzynka na narzedzia … albo raczej na narzedzie.
+Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa klódke,
+sa na niej trzy przyciski: <^>v chyba nalezy je wcisnac w jakiejs sekwencji.
+Aby wpisac haslo napisz: haslo(skrzynka, [sekwencja])'), nl,
+            write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl.
 
 zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
@@ -232,13 +232,13 @@ zobacz(tyl_ogona) :-
             pozycja_gracza(tyl_ogona),
             \+zamknieta_skrzynka_na_narzedzia,
             \+przedmiot_w(klucz_francuski, tyl_ogona),
-            write('Już nic tutaj nie ma.'), nl.
+            write('Juz nic tutaj nie ma.'), nl.
 
 haslo(skrzynka, <>^^>) :-
             pozycja_gracza(tyl_ogona),
             retractall(zamknieta_skrzynka_na_narzedzia),
             assert(przedmiot_w(klucz_francuski, tyl_ogona)),
-            write('Skrzynka otwarta, w środku jest klucz francuski (klucz-_francuski).'),
+            write('Skrzynka otwarta, w srodku jest klucz francuski (klucz-_francuski).'),
             nl.
 
 haslo(skrzynka, _) :-
@@ -249,23 +249,23 @@ haslo(skrzynka, _) :-
 zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
             farba_nie_zdrapana,
-            write('Na ścianie wisi obrazek wsi polskiej.
-Jeden szczegół zwraca uwage … na polu stoi sobie pies o trzech nogach.
-Biedak musiał wiele przeżyć. Farba na niebie wygląda jakby była świeższa od reszty.
-Ktoś chciał coś zamalować.'), nl.
+            write('Na scianie wisi obrazek wsi polskiej.
+Jeden szczegól zwraca uwage … na polu stoi sobie pies o trzech nogach.
+Biedak musial wiele przezyc. Farba na niebie wyglada jakby byla swiezsza od reszty.
+Ktos chcial cos zamalowac.'), nl.
 
 zobacz(prawo) :-
             pozycja_gracza(tyl_ogona),
             \+farba_nie_zdrapana,
-            write('Na ścianie wisi obraz wsi polskiej.
-Jeden szczegół zwraca uwage … na polu stoi sobie pies o trzech nogach.
-Biedak musiał wiele przeżyć. Na niebie jest napisane “mcsldctc” pewnie jakiś analfabeta to pisał.'), nl.
+            write('Na scianie wisi obraz wsi polskiej.
+Jeden szczegól zwraca uwage … na polu stoi sobie pies o trzech nogach.
+Biedak musial wiele przezyc. Na niebie jest napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
 
 
 zobacz(lewo) :-
             pozycja_gracza(tyl_ogona),
             przedmiot_w(szalik, tyl_ogona),
-            write('W kącie leży szalik z napisem POLSKA MISTRZEM POLSKI w kolorach białym i czerwonym (szalik).'), nl.
+            write('W kacie lezy szalik z napisem POLSKA MISTRZEM POLSKI w kolorach bialym i czerwonym (szalik).'), nl.
 
 zobacz(lewo) :-
             pozycja_gracza(tyl_ogona),

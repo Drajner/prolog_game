@@ -132,33 +132,33 @@ uzyj(drabina, szafa) :-
     pozycja_gracza(dziob),
     przedmiot_w(drabina, ekwipunek),
     assert(przedmiot_w(mlotek, dziob)),
-    write("W skrzyni jest młotek!"), nl, !.
+    write("W skrzyni jest mlotek!"), nl, !.
 
 % przod_ogona
 
 
 uzyj(szalik, kula_do_kregli) :-
-            write('Można tym coś rozwalić albo zabić.'), nl,
+            write('Mozna tym cos rozwalic albo zabic.'), nl,
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl.
 
 uzyj(kula_do_kregli, szalik) :-
-            write('Można tym coś rozwalić albo zabić.'), nl,
+            write('Mozna tym cos rozwalic albo zabic.'), nl,
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),
             retract(przedmiot_w(szalik, ekwipunek)),
-            write('Przedmiot kula_w_szaliku ląduje w ekwipunku.'), nl.
+            write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl.
 
 uzyj(kula_w_szaliku, szklane_drzwiczki) :-
             przedmiot_w(kula_w_szaliku, ekwipunek),
             retract(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(zamkniete_szklane_drzwiczki),
             write('BAM! Otwarte.'), nl,
-            write('Ktoś widocznie grał na tyle w kółko i krzyżyk.
-W dodatku bardzo nieudolnie, są tam też jakieś znaki bez sensu.
-Z wyjątkowymi imbecylami przyszło mi dzielić tą podróż.'), nl,
+            write('Ktos widocznie gral na tyle w kólko i krzyzyk.
+W dodatku bardzo nieudolnie, sa tam tez jakies znaki bez sensu.
+Z wyjatkowymi imbecylami przyszlo mi dzielic ta podróz.'), nl,
             write('< | x | o'), nl,
             write('—--------'), nl,
             write('o | o | >'), nl,
@@ -174,6 +174,6 @@ uzyj(haczyk, obraz) :-
             przedmiot_w(haczyk, ekwipunek),
             retract(przedmiot_w(haczyk, ekwipunek)),
             retractall(farba_nie_zdrapana),
-            write('Jest tu napisane “mcsldctc” pewnie jakiś analfabeta to pisał.'), nl.
+            write('Jest tu napisane “mcsldctc” pewnie jakis analfabeta to pisal.'), nl.
 
 

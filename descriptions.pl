@@ -16,7 +16,7 @@ intro :- write("Miejsce: Planeta S4+KU"), nl,
         write("'I po makale! Znowu wygralem!'"), nl,
         write("'Tepe...' - wypowiedz dowodcy przerwal nagly wstrzas."), nl,
         write("Cos musialo uderzyc w statek. To oznaczalo tylko jedno. Nalezy jak najszybciej opuscic to podle miejsce. Czas wziac sie "), nl,
-        write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazeń podczas wypadku. Narzedzia "), nl,
+        write("do roboty. Aby naprawic statek nalezy glowny silnik, ktory doznal najwiekszych obrazen podczas wypadku. Narzedzia "), nl,
         write("powinny byc gdzies na statku. Potrzebne beda: mlotek, klucz-francuski i srubokret."), nl,
         write(""), nl, !.
 
@@ -34,18 +34,18 @@ instrukcja :- write("KOMENDY:"), nl,
 
 opis :- pozycja_gracza(pokoj), not(janusz_nie_gotuje),
         write("Przy stole samotnie siedzi Seba. Janusz dziala w kuchni. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
-        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie maleńka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
+        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie malenka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
         znajdz_przedmioty(pokoj),!.
 
 opis :- pozycja_gracza(pokoj), klodka_zamknieta, janusz_nie_gotuje,
         write("Przy stole w pokoju pogrywajac w karty siedza Janusz i Seba. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
-        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie maleńka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
+        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie malenka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
         write("Opodal wlazu do sluzy lezy skafander."),
         znajdz_przedmioty(pokoj),!.
 
 opis :- pozycja_gracza(pokoj), not(klodka_zamknieta), janusz_nie_gotuje,
         write("Przy stole w pokoju pogrywajac w karty siedza Janusz i Seba. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
-        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie maleńka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
+        write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie malenka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
         znajdz_przedmioty(pokoj),!.
 
 opis :- pozycja_gracza(skrzydlo_lewe),
@@ -64,17 +64,17 @@ opis :- pozycja_gracza(sluza),
 
 opis :-
         pozycja_gracza(przod_ogona),
-        write('Twoim oczom ukazuje sie szara, lekko oswietlona, podłuzna przestrzeń.'), nl,
-        write('Mozesz isc na tył ogona.'), nl,
+        write('Twoim oczom ukazuje sie szara, lekko oswietlona, podluzna przestrzen.'), nl,
+        write('Mozesz isc na tyl ogona.'), nl,
         write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
 
 opis :-
         pozycja_gracza(tyl_ogona),
         zamknieta_skrzynka_na_narzedzia,
         write('Stoi tu niewielka skrzynka na narzedzia … albo raczej na narzedzie.
-Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa kłódke,
+Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa klódke,
 sa na niej trzy przyciski: <^>v chyba nalezy je wcisnac w jakiejs sekwencji.
-Aby wpisac hasło napisz: haslo(skrzynka, [sekwencja])'), nl,
+Aby wpisac haslo napisz: haslo(skrzynka, [sekwencja])'), nl,
         write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl.
 
 opis :-
