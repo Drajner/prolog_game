@@ -28,7 +28,7 @@ instrukcja :- write("KOMENDY:"), nl,
             write("podnies(przdmiot) - pozwala wziac przedmiot do ekwipunku"), nl,
             write("ekwipunek. - wypisuje przedmioty ktore sa w ekwipunku"), nl,
             write("zobacz(obiekt) - pozwala przyjrzec sie obiektowi lub kierunkowi"), nl,
-            write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposarzenie pokoju, janusz tematy wedkarskie)"), nl,
+            write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposazenie pokoju, janusz tematy wedkarskie)"), nl,
             write("napraw_silnik. - pozwala naprawic silnik i ukonczyc gre, gdy w posiadaniu sa mlotek, srubokret i klucz-francuski, a takze jest sie na dziobie"), nl,
             write("instrukcja. - pokazuje liste komend"),
             write("Inne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl,
@@ -42,7 +42,7 @@ opis :- pozycja_gracza(pokoj), not(janusz_nie_gotuje),
 opis :- pozycja_gracza(pokoj), klodka_zamknieta, janusz_nie_gotuje,
         write("Przy stole w pokoju pogrywajac w karty siedza Janusz i Seba. Na scianie obskurnie wygladajacego pokoju bedacego centralnym pomieszczeniem Orzela 1"), nl,
         write("dumnie wisi kalendarz z rozneglizowana kobieta. Na prawej stronie znajdowala sie malenka kuchnia. Przy wejsciu na ogon znajduja sie szafki nalezace do szeregowych."), nl,
-        write("Opodal wlazu do sluzy lezy skafander."),
+        write("Opodal wlazu do sluzy lezy skafander."), nl,
         znajdz_przedmioty(pokoj),!.
 
 opis :- pozycja_gracza(pokoj), not(klodka_zamknieta), janusz_nie_gotuje,
@@ -101,4 +101,6 @@ opis:- pozycja_gracza(dziob),
         znajdz_przedmioty(dziob),!.
 
 znajdz_przedmioty(X) :- przedmiot_w(Y, X),
-                        write("Lezy tu "), write(Y), write("."), nl, fail,!.
+                        write("Lezy (leza) tu "), write(Y), write("."), nl, fail, !.
+
+znajdz_przedmioty(_).

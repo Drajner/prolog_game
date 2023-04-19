@@ -10,8 +10,6 @@ podnies(X) :- pozycja_gracza(Y),
             write("Bomba podnosi "), write(X), !, nl.
 
 podnies(_) :-
-            \+pozycja_gracza(Y),
-            \+przedmiot_w(X, Y),
             write("Nie ma tu takiego przedmiotu.").
 
 upusc(X) :- pozycja_gracza(Y),

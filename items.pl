@@ -128,6 +128,8 @@ uzyj(drabina, szafa) :-
 
 
 uzyj(szalik, kula_do_kregli) :-
+            przedmiot_w(kula_do_kregli, ekwipunek),
+            przedmiot_w(szalik, ekwipunek),
             write('Mozna tym cos rozwalic albo zabic.'), nl,
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),
@@ -135,6 +137,8 @@ uzyj(szalik, kula_do_kregli) :-
             write('Przedmiot kula_w_szaliku laduje w ekwipunku.'), nl,!.
 
 uzyj(kula_do_kregli, szalik) :-
+            przedmiot_w(kula_do_kregli, ekwipunek),
+            przedmiot_w(szalik, ekwipunek),
             write('Mozna tym cos rozwalic albo zabic.'), nl,
             assert(przedmiot_w(kula_w_szaliku, ekwipunek)),
             retract(przedmiot_w(kula_do_kregli, ekwipunek)),

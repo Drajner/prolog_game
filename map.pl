@@ -36,8 +36,6 @@ idz(X) :- miejsce(X),
         opis.
 
 idz(_) :-
-        \+pozycja_gracza(Y),
-        \+takie_same_miejsca(X,Y),
         write("Niestety nie da sie tam pójsc.").
 
 otworz_sluze :- pozycja_gracza(sluza),

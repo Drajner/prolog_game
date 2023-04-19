@@ -17,6 +17,10 @@ zamknieta_skrzynka_na_narzedzia.
 
 % pokoj
 
+przedmiot_w(kalendarz, pokoj).
+przedmiot_w(skafander, pokoj).
+przedmiot_w(szafki, pokoj).
+
 zobacz(kalendarz) :- pozycja_gracza(pokoj), 
                     write("Modelka kusi oczy kapitana. To juz koncowka marca."), nl,
                     write("Dokladniej 26 marca 2039 roku. Za 2 tygodnie powinna przyjsc wyplata i znowu bedzie sie mozna napic."), nl,
