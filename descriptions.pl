@@ -23,7 +23,7 @@ intro :- write("Miejsce: Planeta S4+KU"), nl,
 instrukcja :- write("KOMENDY:"), nl,
             write("idz(miejsce). - pozwala poruszac sie po statku i nie tylko (dostepne miejsca to dziob, pokoj, przod_ogona, tyl_ogona, sluza, skrzydlo_prawe, skrzydlo_lewe)"), nl,
             write("opis. - wyswietla opis miejsca"), nl,
-            write("uzyj(przedmiot). - uzywa pojedynczego przedmiotu (w przypadku skafandra uzycie oznacza zalozenie lub zdjecie), czasem pozwala na dolaczenie mniejszego przedmiotu do posiadanego wiekszego"), nl,
+            write("uzyj(przedmiot/obiekt). - uzywa pojedynczego przedmiotu (w przypadku skafandra uzycie oznacza zalozenie lub zdjecie), czasem pozwala na dolaczenie mniejszego przedmiotu do posiadanego wiekszego"), nl,
             write("uzyj(przedmiot, przedmiot/obiekt). - uzywa przedmiotu w polaczeniu z obiektem lub innym przedmiotem"), nl,
             write("zobacz(obiekt) - pozwala przyjrzec sie obiektowi lub kierunkowi"), nl,
             write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposarzenie pokoju, janusz tematy wedkarskie)"), nl,
@@ -67,27 +67,36 @@ opis :-
         write('Twoim oczom ukazuje sie szara, lekko oswietlona, podluzna przestrzen.'), nl,
         write('Mozesz isc na tyl ogona.'), nl,
         write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
+        znajdz_przedmioty(przod_ogona),!.
 
 opis :-
         pozycja_gracza(tyl_ogona),
         zamknieta_skrzynka_na_narzedzia,
-        write('Stoi tu niewielka skrzynka na narzedzia … albo raczej na narzedzie.
+        write('Stoi tu niewielka skrzynka na narzedzia ... albo raczej na narzedzie.
 Jej rozmiar pozostawia wiele watpliwosci. Jest zamknieta na nietypowa klódke,
 sa na niej trzy przyciski: <^>v chyba nalezy je wcisnac w jakiejs sekwencji.
 Aby wpisac haslo napisz: haslo(skrzynka, [sekwencja])'), nl,
-        write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl.
+        write('Oprócz tego moge rozejrzec sie w prawo lub w lewo.'), nl,
+        znajdz_przedmioty(tyl_ogona),!.
 
 opis :-
         pozycja_gracza(tyl_ogona),
         \+zamknieta_skrzynka_na_narzedzia,
         przedmiot_w(klucz-francuski, tyl_ogona),
-        write('W skrzynce jest klucz francuski (klucz-francuski).'), nl.
+        write('W skrzynce jest klucz francuski (klucz-francuski).'), nl,
+        znajdz_przedmioty(tyl_ogona),!.
 
 opis :-
         pozycja_gracza(tyl_ogona),
         \+zamknieta_skrzynka_na_narzedzia,
         \+przedmiot_w(klucz-francuski, tyl_ogona),
-        write('Juz nic tutaj nie ma.'), nl.
+        write('Skrzynia jest pusta.'), nl,
+        znajdz_przedmioty(tyl_ogona),!.
+
+opis:- pozycja_gracza(dziob),
+        write('Kapitan znalazł się na dziobie statku. Na przedzie pomieszczenia charczy niesprawny silnik. Zeby opuscic to przeklete miejsce trzeba go naprawic.'), nl,
+        write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie jest tak latwo dosiegalna. Gdzies tu powinien lezec mlotek, jesli pamiec Bomby go nie myli.'), nl.
+        znajdz_przedmioty(dziob),!.
 
 znajdz_przedmioty(X) :- przedmiot_w(Y, X),
                         write("Lezy tu "), write(Y), write("."), nl, fail,!.
