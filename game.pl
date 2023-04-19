@@ -17,7 +17,9 @@
                 uzyj/1,
                 zobacz/1,
                 rozmawiaj/2,
-                idz/1.
+                idz/1,
+                przedmiot_w/2,
+                haslo/2.
 
 :- ensure_loaded(map).
 :- ensure_loaded(inventory).

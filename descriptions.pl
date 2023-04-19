@@ -28,7 +28,7 @@ instrukcja :- write("KOMENDY:"), nl,
             write("zobacz(obiekt) - pozwala przyjrzec sie obiektowi lub kierunkowi"), nl,
             write("rozmawiaj(rozmowca, temat) - pozwala na rozmowe z swiadomymi stworzeniami, o tematach im znanych (np. zolnierze i wyposarzenie pokoju, janusz tematy wedkarskie)"), nl,
             write("napraw_silnik. - pozwala naprawic silnik i ukonczyc gre, gdy w posiadaniu sa mlotek, srubokret i klucz-francuski, a takze jest sie na dziobie"), nl,
-            write("instrukcja. - pokazuje liste komend")
+            write("instrukcja. - pokazuje liste komend"),
             write("Inne komendy moga sie pojawic w odpowiednim dla nich momencie."), nl,
             write(""),nl,!.
 
@@ -66,7 +66,7 @@ opis :-
         pozycja_gracza(przod_ogona),
         write('Twoim oczom ukazuje sie szara, lekko oswietlona, podluzna przestrzen.'), nl,
         write('Mozesz isc na tyl ogona.'), nl,
-        write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl.
+        write('Mozesz zobaczyc co jest na prawo lub na lewo.'), nl,
         znajdz_przedmioty(przod_ogona),!.
 
 opis :-
@@ -95,7 +95,7 @@ opis :-
 
 opis:- pozycja_gracza(dziob),
         write('Kapitan znalazł się na dziobie statku. Na przedzie pomieszczenia charczy niesprawny silnik. Zeby opuscic to przeklete miejsce trzeba go naprawic.'), nl,
-        write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie jest tak latwo dosiegalna. Gdzies tu powinien lezec mlotek, jesli pamiec Bomby go nie myli.'), nl.
+        write('W pomieszczeniu znajduje sie szafa, na niej lezy skrzynia, jednak nie jest tak latwo dosiegalna. Gdzies tu powinien lezec mlotek, jesli pamiec Bomby go nie myli.'), nl,
         znajdz_przedmioty(dziob),!.
 
 znajdz_przedmioty(X) :- przedmiot_w(Y, X),
