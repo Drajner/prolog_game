@@ -61,7 +61,8 @@ napraw_silnik :-
         write(""), nl, !.
 
 
-:- intro.
-:- instrukcja.
-:- opis.
+start :-
+        intro,
+        instrukcja,
+        opis.
 
